@@ -5,12 +5,28 @@
   <title>Les Bulles de Vie 97 — Accompagnement TND &amp; Club de loisirs | Guadeloupe</title>
   <meta name="description" content="Association guadeloupéenne dédiée aux personnes avec TND ou handicap, au soutien des familles et aux activités adaptées hors domicile. Pré-inscription SAP et club de loisirs.">
   <meta name="keywords" content="services à la personne Guadeloupe, TND Guadeloupe, autisme Guadeloupe, accompagnement handicap, SAP Guadeloupe, Les Bulles de Vie 97">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#3B8CC7">
+  <link rel="canonical" href="https://main--lbv97.netlify.app/">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
   <meta property="og:title" content="Les Bulles de Vie 97 — Écouter · Accompagner · Créer du lien">
   <meta property="og:description" content="Association d'accompagnement, de soutien aux aidants et d'activités adaptées en Guadeloupe.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://main--lbv97.netlify.app/">
+  <meta property="og:locale" content="fr_GP">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Les Bulles de Vie 97",
+      "url": "https://main--lbv97.netlify.app/",
+      "email": "lesbullesdevie97@gmail.com",
+      "areaServed": "Guadeloupe"
+    }
+  </script>
 
   <style>
     :root {
@@ -466,6 +482,12 @@
     .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
     .form-success h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--vert); margin-bottom: 0.5rem; }
     .form-success p { font-size: 0.87rem; color: var(--gris); line-height: 1.7; }
+    .form-feedback { display: none; margin-top: 1rem; font-size: 0.85rem; line-height: 1.55; }
+    .form-feedback.is-error { display: block; color: #9D3030; }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
 
     /* ======== ÉQUIPE ======== */
     #equipe { background: var(--creme); }
@@ -597,107 +619,23 @@
     }
 
 
-    /* ======== MODE ÉDITION TEXTE ======== */
-    .edit-toolbar {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 9999;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      max-width: min(92vw, 560px);
-      padding: 0.7rem;
-      background: rgba(255,255,255,0.96);
-      border: 1px solid rgba(59,140,199,0.22);
-      border-radius: 18px;
-      box-shadow: 0 12px 34px rgba(0,0,0,0.14);
-      backdrop-filter: blur(12px);
-    }
-    .edit-toolbar button {
-      border: 0;
-      border-radius: 999px;
-      padding: 0.68rem 1rem;
-      font-family: 'Nunito', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 800;
-      cursor: pointer;
-      color: var(--blanc);
-      background: linear-gradient(135deg, var(--bleu), var(--violet));
-      box-shadow: 0 4px 14px rgba(59,140,199,0.24);
-    }
-    .edit-toolbar button.secondary {
-      color: var(--bleu);
-      background: var(--bleu-pale);
-      box-shadow: none;
-    }
-    .edit-toolbar button.warning {
-      color: var(--rouge);
-      background: #fff1f1;
-      box-shadow: none;
-    }
-    body.edit-mode [data-user-editable="true"] {
-      outline: 2px dashed rgba(59,140,199,0.45);
-      outline-offset: 4px;
-      border-radius: 8px;
-      cursor: text;
-    }
-    body.edit-mode [data-user-editable="true"]:focus {
-      outline: 3px solid rgba(155,107,181,0.55);
-      background: rgba(255,255,255,0.55);
-    }
-    .edit-help {
-      position: fixed;
-      right: 18px;
-      bottom: 92px;
-      z-index: 9998;
-      max-width: min(92vw, 420px);
-      padding: 0.9rem 1rem;
-      border-radius: 16px;
-      background: rgba(44,44,62,0.94);
-      color: white;
-      font-size: 0.82rem;
-      line-height: 1.5;
-      box-shadow: 0 12px 34px rgba(0,0,0,0.18);
-      display: none;
-    }
-    body.edit-mode .edit-help { display: block; }
-    @media (max-width: 768px) {
-      .edit-toolbar { left: 12px; right: 12px; bottom: 12px; justify-content: center; }
-      .edit-toolbar button { flex: 1 1 auto; }
-      .edit-help { left: 12px; right: 12px; bottom: 96px; }
-    }
-
   </style>
 </head>
 <body class="">
 
-  <!-- ======== BARRE D'ÉDITION LOCALE ======== -->
-  <div class="edit-help" id="editHelp">
-    Mode édition actif : cliquez directement sur un texte pour le modifier. Les champs des formulaires restent fonctionnels. Cliquez ensuite sur « Télécharger HTML » pour récupérer votre version modifiée.
-  </div>
-  <div class="edit-toolbar" aria-label="Outils d'édition du site">
-    <button type="button" id="toggleEditBtn" onclick="toggleEditMode()">✅ Terminer l’édition</button>
-    <button type="button" class="secondary" onclick="saveLocalEdits()">💾 Sauvegarder ici</button>
-    <button type="button" class="secondary" onclick="downloadEditedHtml()">⬇️ Télécharger HTML</button>
-    <button type="button" class="warning" onclick="resetLocalEdits()">↺ Réinitialiser</button>
-  </div>
-
-
   <!-- ======== NAV ======== -->
   <nav id="navbar" style="box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 30px;">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-bubble"><img src="assets/logo.png" alt="Logo Les Bulles de Vie 97"></div>
-      <div class="nav-logo-text" data-user-editable="true" contenteditable="false" spellcheck="true">Les Bulles<br><span>de Vie 97</span></div>
+      <div class="nav-logo-bubble"><img src="assets/logo.webp" width="640" height="640" alt="Logo Les Bulles de Vie 97"></div>
+      <div class="nav-logo-text">Les Bulles<br><span>de Vie 97</span></div>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#missions" data-user-editable="true" contenteditable="false" spellcheck="true">Nos missions</a></li>
-      <li><a href="#services" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement</a></li>
-      <li><a href="#club-loisirs" data-user-editable="true" contenteditable="false" spellcheck="true">Club loisirs</a></li>
-      <li><a href="#publics" data-user-editable="true" contenteditable="false" spellcheck="true">Publics</a></li>
-      <li><a href="#equipe" data-user-editable="true" contenteditable="false" spellcheck="true">L'équipe</a></li>
-      <li><a href="#contact" data-user-editable="true" contenteditable="false" spellcheck="true">Contact</a></li>
-      <li><a href="#contact" class="nav-cta" data-user-editable="true" contenteditable="false" spellcheck="true">Être rappelé</a></li>
+      <li><a href="#missions">Nos missions</a></li>
+      <li><a href="#services">Accompagnement</a></li>
+      <li><a href="#club-loisirs">Club loisirs</a></li>
+      <li><a href="#publics">Publics</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Être rappelé</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -716,28 +654,28 @@
 
     <div class="hero-layout">
       <div class="hero-inner">
-        <p class="hero-eyebrow" data-user-editable="true" contenteditable="false" spellcheck="true"><span class="eyebrow-dot"></span> Association Loi 1901 — Guadeloupe</p>
-        <h1 class="hero-title" data-user-editable="true" contenteditable="false" spellcheck="true">
+        <p class="hero-eyebrow"><span class="eyebrow-dot"></span> Association Loi 1901 — Guadeloupe</p>
+        <h1 class="hero-title">
           <em>Écouter.</em><br>
           <span class="accent">Accompagner.</span><br>
           Créer du lien.
         </h1>
-        <p class="hero-subtitle" data-user-editable="true" contenteditable="false" spellcheck="true">
+        <p class="hero-subtitle">
           Les Bulles de Vie 97 accompagne les enfants, adolescents et adultes avec TND ou handicap, soutient les familles et développe des activités adaptées hors domicile pour créer des temps de répit, d'apprentissage et de lien social.
         </p>
         <div class="hero-tagline">
-          <span class="tag-pill tag-bleu" data-user-editable="true" contenteditable="false" spellcheck="true">🏡 Accompagnement à domicile</span>
-          <span class="tag-pill tag-violet" data-user-editable="true" contenteditable="false" spellcheck="true">🧠 Handicap TND &amp; Senior<br></span>
-          <span class="tag-pill tag-vert" data-user-editable="true" contenteditable="false" spellcheck="true">🎯 Club de loisirs adaptés</span>
+          <span class="tag-pill tag-bleu">🏡 Accompagnement à domicile</span>
+          <span class="tag-pill tag-violet">🧠 Handicap TND &amp; Senior<br></span>
+          <span class="tag-pill tag-vert">🎯 Club de loisirs adaptés</span>
         </div>
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary" data-user-editable="true" contenteditable="false" spellcheck="true">🫧 Demander un premier échange</a>
-          <a href="#club-loisirs" class="btn-secondary" data-user-editable="true" contenteditable="false" spellcheck="true">Voir le club de loisirs</a>
+          <a href="#contact" class="btn-primary">🫧 Demander un premier échange</a>
+          <a href="#club-loisirs" class="btn-secondary">Voir le club de loisirs</a>
         </div>
-        <p class="micro-proof" data-user-editable="true" contenteditable="false" spellcheck="true"><strong>Pré-inscription gratuite.</strong> Une réponse humaine, claire et orientée solution.</p>
+        <p class="micro-proof"><strong>Pré-inscription gratuite.</strong> Une réponse humaine, claire et orientée solution.</p>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <div class="hero-logo-card"><img src="assets/logo.png" alt=""></div>
+        <div class="hero-logo-card"><img src="assets/logo.webp" width="640" height="640" alt=""></div>
       </div>
     </div>
 
@@ -752,42 +690,42 @@
   <section id="missions">
     <div class="section-inner">
       <div class="reveal visible">
-        <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ Qui sommes-nous</p>
-        <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Nos <em>missions</em> &amp; valeurs</h2>
-        <p class="section-intro" data-user-editable="true" contenteditable="false" spellcheck="true">
+        <p class="section-tag">✦ Qui sommes-nous</p>
+        <h2 class="section-title">Nos <em>missions</em> &amp; valeurs</h2>
+        <p class="section-intro">
           Nous croyons que chaque personne, quelle que soit sa singularité, mérite un accompagnement à la hauteur de ses besoins. Nos actions s'inscrivent dans une démarche inclusive, participative et ancrée dans la réalité guadeloupéenne.
         </p>
       </div>
       <div class="valeurs-grid">
         <div class="valeur-card c-bleu reveal visible">
           <div class="valeur-icon">🤝</div>
-          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Services à la personne (SAP)</div>
-          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement à domicile dans les actes de la vie quotidienne : repas, mobilité, routines, stimulation cognitive, communication et prévention des comportements-problèmes, selon le cadre SAP applicable.</div>
+          <div class="valeur-title">Services à la personne (SAP)</div>
+          <div class="valeur-text">Accompagnement à domicile dans les actes de la vie quotidienne : repas, mobilité, routines, stimulation cognitive, communication et prévention des comportements-problèmes, selon le cadre SAP applicable.</div>
         </div>
         <div class="valeur-card c-violet reveal visible" style="transition-delay:0.1s">
           <div class="valeur-icon">🧩</div>
-          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement éducatif TND</div>
-          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien éducatif à domicile pour les personnes présentant des besoins spécifiques : autisme, TDAH, DI et autres troubles du neurodéveloppement. Approche basée sur les données (ABA, CAA).</div>
+          <div class="valeur-title">Accompagnement éducatif TND</div>
+          <div class="valeur-text">Soutien éducatif à domicile pour les personnes présentant des besoins spécifiques : autisme, TDAH, DI et autres troubles du neurodéveloppement. Approche basée sur les données (ABA, CAA).</div>
         </div>
         <div class="valeur-card c-vert reveal visible" style="transition-delay:0.2s">
           <div class="valeur-icon">🏃</div>
-          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Activité physique adaptée (APA)</div>
-          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Activités sportives et motrices adaptées aux besoins de chacun, dans une logique de santé, d'autonomie, de plaisir corporel et de participation sociale.</div>
+          <div class="valeur-title">Activité physique adaptée (APA)</div>
+          <div class="valeur-text">Activités sportives et motrices adaptées aux besoins de chacun, dans une logique de santé, d'autonomie, de plaisir corporel et de participation sociale.</div>
         </div>
         <div class="valeur-card c-orange reveal visible" style="transition-delay:0.1s">
           <div class="valeur-icon">🎨</div>
-          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Ateliers sensoriels &amp; loisirs</div>
-          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Ateliers ludiques, sensoriels et éducatifs pour soutenir le développement des compétences motrices, cognitives, émotionnelles et communicationnelles des bénéficiaires.</div>
+          <div class="valeur-title">Ateliers sensoriels &amp; loisirs</div>
+          <div class="valeur-text">Ateliers ludiques, sensoriels et éducatifs pour soutenir le développement des compétences motrices, cognitives, émotionnelles et communicationnelles des bénéficiaires.</div>
         </div>
         <div class="valeur-card c-rouge reveal visible" style="transition-delay:0.2s">
           <div class="valeur-icon">💬</div>
-          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Communication augmentative (CAA)</div>
-          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Promotion et mise en œuvre d'outils de communication alternative et augmentative pour favoriser l'expression, la participation et l'inclusion de toutes les personnes.</div>
+          <div class="valeur-title">Communication augmentative (CAA)</div>
+          <div class="valeur-text">Promotion et mise en œuvre d'outils de communication alternative et augmentative pour favoriser l'expression, la participation et l'inclusion de toutes les personnes.</div>
         </div>
         <div class="valeur-card c-bleu2 reveal visible" style="transition-delay:0.3s">
           <div class="valeur-icon">💪</div>
-          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien aux familles &amp; aidants</div>
-          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Temps de répit, pair-aidance, écoute, information et orientation. Parce qu'accompagner un proche est un engagement total qui nécessite d'être soi-même soutenu.</div>
+          <div class="valeur-title">Soutien aux familles &amp; aidants</div>
+          <div class="valeur-text">Temps de répit, pair-aidance, écoute, information et orientation. Parce qu'accompagner un proche est un engagement total qui nécessite d'être soi-même soutenu.</div>
         </div>
       </div>
     </div>
@@ -797,9 +735,9 @@
   <section id="services">
     <div class="section-inner">
       <div class="services-header reveal visible">
-        <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ Services à la personne</p>
-        <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Ce que nous <em>proposons</em></h2>
-        <p class="section-intro" data-user-editable="true" contenteditable="false" spellcheck="true">Une offre progressive : accompagnement à domicile, soutien des familles et activités adaptées hors domicile. Les services SAP seront structurés selon le cadre réglementaire applicable, en mode prestataire ou mandataire.</p>
+        <p class="section-tag">✦ Services à la personne</p>
+        <h2 class="section-title">Ce que nous <em>proposons</em></h2>
+        <p class="section-intro">Une offre progressive : accompagnement à domicile, soutien des familles et activités adaptées hors domicile. Les services SAP seront structurés selon le cadre réglementaire applicable, en mode prestataire ou mandataire.</p>
       </div>
 
       <div class="lancement-banner reveal visible">
@@ -808,50 +746,50 @@
           <strong>Lancement des services SAP — Janvier 2027</strong>
           <span>Les pré-inscriptions sont ouvertes dès maintenant. Soyez parmi les premiers à bénéficier de nos services.</span>
         </div>
-        <a href="#preinscription" class="lancement-btn" data-user-editable="true" contenteditable="false" spellcheck="true">Se pré-inscrire →</a>
+        <a href="#preinscription" class="lancement-btn">Se pré-inscrire →</a>
       </div>
 
       <div class="services-grid">
         <div class="service-card reveal visible">
           <div class="service-icon-wrap si-bleu">🏡</div>
           <div class="service-body">
-            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement dans la vie quotidienne</div>
-            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien aux routines, aux repas, à la mobilité, aux tâches du quotidien, à la communication et à l'autonomie pour les personnes avec TND ou handicap.</div>
+            <div class="service-title">Accompagnement dans la vie quotidienne</div>
+            <div class="service-desc">Soutien aux routines, aux repas, à la mobilité, aux tâches du quotidien, à la communication et à l'autonomie pour les personnes avec TND ou handicap.</div>
           </div>
         </div>
         <div class="service-card reveal visible" style="transition-delay:0.1s">
           <div class="service-icon-wrap si-violet">📚</div>
           <div class="service-body">
-            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement éducatif à domicile</div>
-            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien éducatif spécialisé pour les personnes présentant des besoins éducatifs particuliers. Coordination avec les familles, aidants et structures médico-sociales.</div>
+            <div class="service-title">Accompagnement éducatif à domicile</div>
+            <div class="service-desc">Soutien éducatif spécialisé pour les personnes présentant des besoins éducatifs particuliers. Coordination avec les familles, aidants et structures médico-sociales.</div>
           </div>
         </div>
         <div class="service-card reveal visible" style="transition-delay:0.1s">
           <div class="service-icon-wrap si-vert">👶</div>
           <div class="service-body">
-            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Garde à domicile</div>
-            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Garde spécialisée pour les personnes en situation de handicap et/ou issues de la neurodiversité. Intervenants qualifiés, adaptés aux profils et aux besoins.</div>
+            <div class="service-title">Garde à domicile</div>
+            <div class="service-desc">Garde spécialisée pour les personnes en situation de handicap et/ou issues de la neurodiversité. Intervenants qualifiés, adaptés aux profils et aux besoins.</div>
           </div>
         </div>
         <div class="service-card reveal visible" style="transition-delay:0.2s">
           <div class="service-icon-wrap si-orange">👨‍👩‍👧</div>
           <div class="service-body">
-            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien à la parentalité</div>
-            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Accueil, écoute, information et orientation des familles. Guidance parentale et accompagnement dans les démarches administratives (NOVA, CESU…).</div>
+            <div class="service-title">Soutien à la parentalité</div>
+            <div class="service-desc">Accueil, écoute, information et orientation des familles. Guidance parentale et accompagnement dans les démarches administratives (NOVA, CESU…).</div>
           </div>
         </div>
         <div class="service-card reveal visible">
           <div class="service-icon-wrap si-violet">🧭</div>
           <div class="service-body">
-            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Coordination et orientation des parcours</div>
-            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Aide à clarifier les besoins, prioriser les démarches et articuler les interventions autour de la personne, avec la famille et les partenaires.</div>
+            <div class="service-title">Coordination et orientation des parcours</div>
+            <div class="service-desc">Aide à clarifier les besoins, prioriser les démarches et articuler les interventions autour de la personne, avec la famille et les partenaires.</div>
           </div>
         </div>
         <div class="service-card reveal visible" style="transition-delay:0.1s">
           <div class="service-icon-wrap si-vert">☀️</div>
           <div class="service-body">
-            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Temps de répit &amp; club de loisirs</div>
-            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Organisation de temps collectifs adaptés : sport, loisirs manuels, sensoriels et culturels, pour soutenir la qualité de vie, la socialisation et le répit familial.</div>
+            <div class="service-title">Temps de répit &amp; club de loisirs</div>
+            <div class="service-desc">Organisation de temps collectifs adaptés : sport, loisirs manuels, sensoriels et culturels, pour soutenir la qualité de vie, la socialisation et le répit familial.</div>
           </div>
         </div>
       </div>
@@ -864,12 +802,12 @@
     <div class="section-inner">
       <div class="club-grid">
         <div class="club-panel reveal visible">
-          <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ Hors domicile</p>
-          <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Le <em>club de loisirs</em> adapté</h2>
-          <p data-user-editable="true" contenteditable="false" spellcheck="true">
+          <p class="section-tag">✦ Hors domicile</p>
+          <h2 class="section-title">Le <em>club de loisirs</em> adapté</h2>
+          <p>
             Le projet : proposer périodiquement des temps collectifs structurés pour les enfants, adolescents et adultes avec TND ou handicap, dans un cadre contenant, lisible et bienveillant.
           </p>
-          <p data-user-editable="true" contenteditable="false" spellcheck="true">
+          <p>
             Les activités seront pensées pour favoriser la participation, la motivation, la communication, l'autonomie et le lien social — sans pression de performance.
           </p>
           <ul class="club-list">
@@ -878,8 +816,8 @@
             <li>🤝 Temps de répit indirect pour les familles et les aidants</li>
           </ul>
           <div class="club-cta">
-            <a href="#contact" class="btn-primary" data-user-editable="true" contenteditable="false" spellcheck="true">Être informé des premiers créneaux</a>
-            <a href="#preinscription" class="btn-secondary" data-user-editable="true" contenteditable="false" spellcheck="true">Me pré-inscrire</a>
+            <a href="#contact" class="btn-primary">Être informé des premiers créneaux</a>
+            <a href="#preinscription" class="btn-secondary">Me pré-inscrire</a>
           </div>
         </div>
         <div class="club-cards">
@@ -917,25 +855,25 @@
   <section id="publics">
     <div class="section-inner">
       <div class="reveal visible">
-        <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ À qui s'adresse-t-on ?</p>
-        <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Nos <em>publics</em></h2>
-        <p class="section-intro" data-user-editable="true" contenteditable="false" spellcheck="true">Nous accueillons les personnes avec TND ou handicap, ainsi que les familles et aidants qui ont besoin d'un accompagnement lisible, humain et adapté.</p>
+        <p class="section-tag">✦ À qui s'adresse-t-on ?</p>
+        <h2 class="section-title">Nos <em>publics</em></h2>
+        <p class="section-intro">Nous accueillons les personnes avec TND ou handicap, ainsi que les familles et aidants qui ont besoin d'un accompagnement lisible, humain et adapté.</p>
       </div>
       <div class="publics-grid">
         <div class="public-card pc-bleu reveal visible">
           <div class="public-icon">🧒</div>
-          <div class="public-title" data-user-editable="true" contenteditable="false" spellcheck="true">Enfants &amp; adolescents TND</div>
-          <div class="public-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Autisme, TDAH, DI et autres troubles du neurodéveloppement. Accompagnement dès le diagnostic.</div>
+          <div class="public-title">Enfants &amp; adolescents TND</div>
+          <div class="public-desc">Autisme, TDAH, DI et autres troubles du neurodéveloppement. Accompagnement dès le diagnostic.</div>
         </div>
         <div class="public-card pc-violet reveal visible" style="transition-delay:0.1s">
           <div class="public-icon">🧑</div>
-          <div class="public-title" data-user-editable="true" contenteditable="false" spellcheck="true">Adultes en situation de handicap ou de grand âge</div>
-          <div class="public-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien à l'autonomie, à la vie sociale et à l'insertion pour les adultes avec handicap intellectuel ou TND.</div>
+          <div class="public-title">Adultes en situation de handicap ou de grand âge</div>
+          <div class="public-desc">Soutien à l'autonomie, à la vie sociale et à l'insertion pour les adultes avec handicap intellectuel ou TND.</div>
         </div>
         <div class="public-card pc-orange reveal visible" style="transition-delay:0.2s">
           <div class="public-icon">👨‍👩‍👧</div>
-          <div class="public-title" data-user-editable="true" contenteditable="false" spellcheck="true">Familles &amp; aidants</div>
-          <div class="public-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Parents, proches aidants, professionnels — parce qu'accompagner demande aussi d'être soutenu.</div>
+          <div class="public-title">Familles &amp; aidants</div>
+          <div class="public-desc">Parents, proches aidants, professionnels — parce qu'accompagner demande aussi d'être soutenu.</div>
         </div>
       </div>
     </div>
@@ -946,10 +884,10 @@
     <div class="section-inner">
       <div class="preinscription-grid">
         <div class="preinscription-info reveal visible">
-          <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ Lancement SAP — Janvier 2027</p>
-          <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Pré-inscription<br><em>gratuite</em></h2>
-          <p data-user-editable="true" contenteditable="false" spellcheck="true">Nos services SAP seront opérationnels en janvier 2027. En vous pré-inscrivant dès aujourd'hui, vous garantissez votre place parmi les premiers bénéficiaires et restez informé(e) de l'avancement du projet.</p>
-          <p data-user-editable="true" contenteditable="false" spellcheck="true">La pré-inscription est sans engagement. Elle nous permet simplement d'évaluer les besoins et d'adapter nos ressources à la demande.</p>
+          <p class="section-tag">✦ Lancement SAP — Janvier 2027</p>
+          <h2 class="section-title">Pré-inscription<br><em>gratuite</em></h2>
+          <p>Nos services SAP seront opérationnels en janvier 2027. En vous pré-inscrivant dès aujourd'hui, vous garantissez votre place parmi les premiers bénéficiaires et restez informé(e) de l'avancement du projet.</p>
+          <p>La pré-inscription est sans engagement. Elle nous permet simplement d'évaluer les besoins et d'adapter nos ressources à la demande.</p>
           <ul class="preinscription-avantages">
             <li><span class="avantage-dot"></span> Priorité d'accès au lancement</li>
             <li><span class="avantage-dot"></span> Information en avant-première</li>
@@ -960,31 +898,33 @@
         </div>
 
         <div class="form-card reveal visible" style="transition-delay:0.15s">
-          <h3 data-user-editable="true" contenteditable="false" spellcheck="true">Formulaire de pré-inscription</h3>
-          <p data-user-editable="true" contenteditable="false" spellcheck="true">Remplissez ce formulaire pour exprimer votre intérêt — nous vous recontacterons.</p>
+          <h3>Formulaire de pré-inscription</h3>
+          <p>Remplissez ce formulaire pour exprimer votre intérêt — nous vous recontacterons.</p>
 
-          <div id="formWrap">
+          <form id="preinscription-form" name="preinscription" method="POST" action="/merci.html" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="preinscription">
+            <p class="visually-hidden"><label>Ne pas remplir ce champ <input name="bot-field"></label></p>
             <div class="form-row">
               <div class="form-group">
-                <label>Prénom *</label>
-                <input type="text" id="prenom" placeholder="Marie" required="">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Marie" autocomplete="given-name" required>
               </div>
               <div class="form-group">
-                <label>Nom *</label>
-                <input type="text" id="nom" placeholder="Dupont" required="">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" autocomplete="family-name" required>
               </div>
             </div>
             <div class="form-group">
-              <label>Email *</label>
-              <input type="email" id="email" placeholder="marie@exemple.com" required="">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" placeholder="marie@exemple.com" autocomplete="email" required>
             </div>
             <div class="form-group">
-              <label>Téléphone</label>
-              <input type="tel" id="tel" placeholder="06 90 XX XX XX">
+              <label for="tel">Téléphone</label>
+              <input type="tel" id="tel" name="telephone" placeholder="06 90 XX XX XX" autocomplete="tel">
             </div>
             <div class="form-group">
-              <label>Commune de résidence *</label>
-              <select id="commune" required="">
+              <label for="commune">Commune de résidence *</label>
+              <select id="commune" name="commune" required>
                 <option value="">-- Choisir --</option>
                 <option>Baie-Mahault</option>
                 <option>Les Abymes</option>
@@ -998,3 +938,78 @@
                 <option>Autre commune</option>
               </select>
             </div>
+            <button class="form-submit" type="submit">Envoyer ma pré-inscription</button>
+            <p class="form-note">Les informations transmises sont utilisées uniquement pour répondre à votre demande de pré-inscription. Merci de ne pas indiquer d'informations médicales ou personnelles sensibles.</p>
+            <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+          <div class="form-success" id="form-success" role="status" aria-live="polite">
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <h4>Votre demande a bien été envoyée</h4>
+            <p>Merci pour votre confiance. L'association reviendra vers vous dès que possible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CONTACT ======== -->
+  <section id="contact">
+    <div class="section-inner contact-inner">
+      <p class="section-tag">✦ Nous contacter</p>
+      <h2 class="section-title">Un premier <em>échange</em></h2>
+      <p class="contact-subtitle">Vous souhaitez être informé(e) du lancement, des activités ou des premiers créneaux ? La pré-inscription nous permet de mieux comprendre les besoins et de vous recontacter.</p>
+      <div class="contact-actions">
+        <a href="#preinscription" class="btn-white">Faire une pré-inscription</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer>
+    <span>© <span id="current-year">2026</span> Les Bulles de Vie 97</span>
+    <span class="footer-tagline">Écouter · Accompagner · Créer du lien</span>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('navLinks');
+      menu.classList.toggle('open');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    const form = document.getElementById('preinscription-form');
+    const feedback = document.getElementById('form-feedback');
+    const success = document.getElementById('form-success');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitButton = form.querySelector('button[type="submit"]');
+      feedback.className = 'form-feedback';
+      feedback.textContent = '';
+      submitButton.disabled = true;
+      submitButton.textContent = 'Envoi en cours…';
+
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString(),
+        });
+        if (!response.ok) throw new Error('Submission failed');
+        form.hidden = true;
+        success.style.display = 'block';
+      } catch (error) {
+        feedback.className = 'form-feedback is-error';
+        feedback.textContent = 'L’envoi n’a pas abouti. Vérifiez votre connexion puis réessayez.';
+        submitButton.disabled = false;
+        submitButton.textContent = 'Envoyer ma pré-inscription';
+      }
+    });
+
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

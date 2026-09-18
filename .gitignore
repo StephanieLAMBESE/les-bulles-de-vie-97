@@ -1,0 +1,6 @@
+# Notes locales et informations internes non destinées au dépôt
+docs/local/
+docs/private/
+
+# Fichiers du système
+.DS_Store
