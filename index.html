@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Bulles de Vie 97 — Accompagnement TND &amp; Club de loisirs | Guadeloupe</title>
+  <meta name="description" content="Association guadeloupéenne dédiée aux personnes avec TND ou handicap, au soutien des familles et aux activités adaptées hors domicile. Pré-inscription SAP et club de loisirs.">
+  <meta name="keywords" content="services à la personne Guadeloupe, TND Guadeloupe, autisme Guadeloupe, accompagnement handicap, SAP Guadeloupe, Les Bulles de Vie 97">
+  <meta property="og:title" content="Les Bulles de Vie 97 — Écouter · Accompagner · Créer du lien">
+  <meta property="og:description" content="Association d'accompagnement, de soutien aux aidants et d'activités adaptées en Guadeloupe.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bleu:       #3B8CC7;
+      --bleu-clair: #6DB8E8;
+      --bleu-pale:  #E8F4FC;
+      --violet:     #9B6BB5;
+      --violet-pale:#F0E8F8;
+      --vert:       #5BB87A;
+      --vert-pale:  #E6F7EC;
+      --orange:     #F4A234;
+      --orange-pale:#FEF3E2;
+      --rouge:      #E05A5A;
+      --creme:      #FDFBF8;
+      --blanc:      #FFFFFF;
+      --texte:      #2C2C3E;
+      --gris:       #7A7A8C;
+      --gris-clair: #F0EFF7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--creme);
+      color: var(--texte);
+      overflow-x: hidden;
+    }
+
+    /* ======== NAV ======== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 3rem;
+      background: rgba(253,251,248,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(59,140,199,0.15);
+      transition: box-shadow 0.3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.7rem;
+      text-decoration: none;
+    }
+    .nav-logo-bubble {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      background: var(--blanc);
+      box-shadow: 0 4px 14px rgba(59,140,199,0.18);
+      border: 2px solid rgba(59,140,199,0.15);
+    }
+    .nav-logo-bubble img { width: 100%; height: 100%; object-fit: cover; }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--bleu);
+      line-height: 1.1;
+    }
+    .nav-logo-text span { color: var(--violet); font-style: italic; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--gris);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--bleu); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--bleu), var(--violet)) !important;
+      color: var(--blanc) !important;
+      padding: 0.55rem 1.3rem !important;
+      border-radius: 50px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.04em !important;
+      font-size: 0.78rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.88 !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--bleu); border-radius: 2px; transition: all 0.3s; }
+
+    /* ======== HERO ======== */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 3rem 4rem;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(160deg, #E8F4FC 0%, #F0E8F8 40%, #FEF3E2 80%, #E6F7EC 100%);
+    }
+    /* Bubbles déco */
+    .bubble-deco {
+      position: absolute; border-radius: 50%;
+      opacity: 0.25;
+      animation: float 6s ease-in-out infinite;
+    }
+    .b1 { width:180px;height:180px; background:var(--bleu-clair); top:10%;right:8%; animation-delay:0s; }
+    .b2 { width:90px;height:90px; background:var(--violet); top:25%;right:22%; animation-delay:1.5s; }
+    .b3 { width:60px;height:60px; background:var(--vert); top:60%;right:5%; animation-delay:3s; }
+    .b4 { width:120px;height:120px; background:var(--orange); bottom:15%;left:5%; animation-delay:2s; }
+    .b5 { width:50px;height:50px; background:var(--rouge); bottom:30%;left:22%; animation-delay:4s; }
+    .b6 { width:70px;height:70px; background:var(--bleu-clair); top:40%;left:35%; animation-delay:1s; }
+    @keyframes float {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-18px) scale(1.04); }
+    }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 660px;
+    }
+    .hero-layout {
+      position: relative; z-index: 1;
+      width: 100%; max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: 3rem; align-items: center;
+    }
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      opacity: 0; animation: fadeUp 0.7s ease 0.75s forwards;
+    }
+    .hero-logo-card {
+      width: min(420px, 90vw); aspect-ratio: 1/1;
+      border-radius: 34px;
+      background: rgba(255,255,255,0.58);
+      backdrop-filter: blur(12px);
+      padding: 1.1rem;
+      box-shadow: 0 24px 70px rgba(59,140,199,0.22);
+      border: 1px solid rgba(255,255,255,0.65);
+      transform: rotate(1.5deg);
+    }
+    .hero-logo-card img {
+      width: 100%; height: 100%; object-fit: contain;
+      border-radius: 28px;
+      display: block;
+    }
+    .micro-proof {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--gris);
+      opacity: 0; animation: fadeUp 0.7s ease 1s forwards;
+    }
+    .micro-proof strong { color: var(--texte); }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--bleu); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards;
+    }
+    .eyebrow-dot { width:6px;height:6px;border-radius:50%;background:var(--bleu); }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-weight: 600; line-height: 1.08;
+      color: var(--texte); margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards;
+    }
+    .hero-title em { color: var(--bleu); font-style: italic; }
+    .hero-title .accent { color: var(--violet); }
+    .hero-subtitle {
+      font-size: 1.1rem; line-height: 1.75; color: var(--gris);
+      max-width: 520px; margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.6s forwards;
+    }
+    .hero-tagline {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      opacity: 0; animation: fadeUp 0.7s ease 0.7s forwards;
+    }
+    .tag-pill {
+      font-size: 0.8rem; font-weight: 700;
+      padding: 0.4rem 1rem; border-radius: 50px;
+      letter-spacing: 0.04em;
+    }
+    .tag-bleu   { background: var(--bleu-pale); color: var(--bleu); }
+    .tag-violet { background: var(--violet-pale); color: var(--violet); }
+    .tag-vert   { background: var(--vert-pale); color: var(--vert); }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s ease 0.9s forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, var(--bleu), var(--violet));
+      color: var(--blanc); text-decoration: none;
+      font-size: 0.9rem; font-weight: 700;
+      padding: 0.9rem 2rem; border-radius: 50px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(59,140,199,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(59,140,199,0.45); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--bleu); text-decoration: none;
+      font-size: 0.9rem; font-weight: 700;
+      padding: 0.9rem 2rem; border-radius: 50px;
+      border: 2px solid var(--bleu);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--bleu); color: var(--blanc); }
+
+    .hero-badge {
+      position: absolute; right: 6%; bottom: 12%; z-index: 1;
+      background: var(--blanc);
+      border-radius: 20px;
+      padding: 1.2rem 1.6rem;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      text-align: center;
+      opacity: 0; animation: fadeUp 0.7s ease 1.1s forwards;
+    }
+    .hero-badge-num {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 600;
+      color: var(--bleu); line-height: 1;
+    }
+    .hero-badge-label { font-size: 0.72rem; font-weight: 700; color: var(--gris); letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero-badge-sub { font-size: 0.68rem; color: var(--orange); font-weight: 700; margin-top: 0.2rem; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ======== SECTIONS COMMUNES ======== */
+    section { padding: 5rem 3rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--bleu); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 600; line-height: 1.15;
+      color: var(--texte); margin-bottom: 1.2rem;
+    }
+    .section-title em { color: var(--bleu); font-style: italic; }
+    .section-intro { font-size: 1.05rem; line-height: 1.8; color: var(--gris); max-width: 620px; margin-bottom: 3rem; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ======== VALEURS ======== */
+    #missions { background: var(--blanc); }
+    .valeurs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem; margin-top: 2rem;
+    }
+    .valeur-card {
+      background: var(--creme);
+      border-radius: 20px; padding: 2rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .valeur-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .valeur-card.c-bleu::before { background: linear-gradient(90deg, var(--bleu), var(--bleu-clair)); }
+    .valeur-card.c-violet::before { background: linear-gradient(90deg, var(--violet), #C39BD3); }
+    .valeur-card.c-vert::before { background: linear-gradient(90deg, var(--vert), #82E0AA); }
+    .valeur-card.c-orange::before { background: linear-gradient(90deg, var(--orange), #F7C265); }
+    .valeur-card.c-rouge::before { background: linear-gradient(90deg, var(--rouge), #F1948A); }
+    .valeur-card.c-bleu2::before { background: linear-gradient(90deg, #5DADE2, var(--bleu)); }
+    .valeur-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .valeur-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .valeur-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--texte); margin-bottom: 0.7rem;
+    }
+    .valeur-text { font-size: 0.87rem; line-height: 1.7; color: var(--gris); }
+
+    /* ======== SERVICES SAP ======== */
+    #services { background: linear-gradient(160deg, #E8F4FC 0%, #F0E8F8 100%); }
+    .services-header { text-align: center; margin-bottom: 3rem; }
+    .services-header .section-intro { margin: 0 auto; }
+    .lancement-banner {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      background: linear-gradient(135deg, var(--bleu), var(--violet));
+      color: var(--blanc);
+      border-radius: 16px; padding: 1.4rem 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 30px rgba(59,140,199,0.3);
+    }
+    .lancement-icon { font-size: 2rem; }
+    .lancement-text { flex: 1; }
+    .lancement-text strong { display: block; font-size: 1rem; font-weight: 800; margin-bottom: 0.2rem; }
+    .lancement-text span { font-size: 0.87rem; opacity: 0.9; }
+    .lancement-btn {
+      background: var(--blanc);
+      color: var(--bleu);
+      font-weight: 800; font-size: 0.82rem;
+      padding: 0.7rem 1.4rem; border-radius: 50px;
+      text-decoration: none; white-space: nowrap;
+      transition: transform 0.2s;
+    }
+    .lancement-btn:hover { transform: scale(1.04); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--blanc); border-radius: 18px;
+      padding: 1.8rem; display: flex; gap: 1.2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,0.1); }
+    .service-icon-wrap {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+    .si-bleu   { background: var(--bleu-pale); }
+    .si-violet { background: var(--violet-pale); }
+    .si-vert   { background: var(--vert-pale); }
+    .si-orange { background: var(--orange-pale); }
+    .service-body {}
+    .service-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--texte); margin-bottom: 0.5rem; }
+    .service-desc { font-size: 0.83rem; line-height: 1.65; color: var(--gris); }
+
+    /* ======== PUBLICS ======== */
+    #publics { background: var(--blanc); }
+    .publics-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 2rem;
+    }
+    .public-card {
+      border-radius: 20px; padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform 0.25s;
+    }
+    .public-card:hover { transform: translateY(-5px); }
+    .pc-bleu   { background: var(--bleu-pale); }
+    .pc-violet { background: var(--violet-pale); }
+    .pc-vert   { background: var(--vert-pale); }
+    .pc-orange { background: var(--orange-pale); }
+    .public-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .public-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--texte); margin-bottom: 0.5rem; }
+    .public-desc { font-size: 0.82rem; line-height: 1.6; color: var(--gris); }
+
+
+    /* ======== CLUB DE LOISIRS ======== */
+    #club-loisirs { background: var(--blanc); }
+    .club-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 3rem; align-items: center; }
+    .club-panel {
+      background: linear-gradient(160deg, var(--bleu-pale), var(--violet-pale));
+      border-radius: 28px; padding: 2.2rem;
+      box-shadow: 0 14px 44px rgba(59,140,199,0.12);
+    }
+    .club-panel h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--texte); }
+    .club-panel p { font-size: 0.95rem; color: var(--gris); line-height: 1.8; margin-bottom: 1rem; }
+    .club-list { list-style: none; display: grid; gap: 0.75rem; margin: 1.5rem 0 0; }
+    .club-list li {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      background: rgba(255,255,255,0.72); padding: 0.85rem 1rem; border-radius: 14px;
+      font-size: 0.9rem; color: var(--texte); font-weight: 700;
+    }
+    .club-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .club-card { border-radius: 18px; padding: 1.4rem; background: var(--creme); border: 1px solid rgba(59,140,199,0.12); }
+    .club-card-icon { font-size: 2rem; margin-bottom: 0.7rem; }
+    .club-card-title { font-family: 'Playfair Display', serif; font-weight: 600; margin-bottom: 0.45rem; }
+    .club-card-text { font-size: 0.84rem; line-height: 1.65; color: var(--gris); }
+    .club-cta { margin-top: 1.8rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .conversion-strip {
+      margin-top: 3rem; background: var(--texte); color: var(--blanc); border-radius: 24px;
+      padding: 1.6rem 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .conversion-item strong { display: block; font-size: 1rem; margin-bottom: 0.25rem; }
+    .conversion-item span { font-size: 0.82rem; opacity: 0.76; line-height: 1.5; }
+
+    /* ======== PRÉ-INSCRIPTION ======== */
+    #preinscription { background: linear-gradient(160deg, #F0E8F8 0%, #E8F4FC 100%); }
+    .preinscription-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .preinscription-info { }
+    .preinscription-info p { font-size: 0.95rem; line-height: 1.8; color: var(--gris); margin-bottom: 1.2rem; }
+    .preinscription-avantages { list-style: none; margin-top: 1.5rem; }
+    .preinscription-avantages li {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 0.9rem; font-weight: 600; color: var(--texte);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(59,140,199,0.12);
+    }
+    .preinscription-avantages li:last-child { border-bottom: none; }
+    .avantage-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--bleu); flex-shrink: 0; }
+    .form-card {
+      background: var(--blanc); border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 16px 50px rgba(59,140,199,0.15);
+    }
+    .form-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--texte); margin-bottom: 0.4rem;
+    }
+    .form-card p { font-size: 0.85rem; color: var(--gris); margin-bottom: 1.8rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block; font-size: 0.78rem; font-weight: 700;
+      color: var(--texte); letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid #E0DEF0;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem; color: var(--texte);
+      background: var(--creme);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--bleu);
+      box-shadow: 0 0 0 3px rgba(59,140,199,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit {
+      width: 100%; padding: 1rem;
+      background: linear-gradient(135deg, var(--bleu), var(--violet));
+      color: var(--blanc); border: none; border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem; font-weight: 800;
+      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(59,140,199,0.35);
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(59,140,199,0.45); }
+    .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+    .form-note { font-size: 0.72rem; color: var(--gris); text-align: center; margin-top: 0.8rem; }
+    .form-success {
+      display: none; text-align: center;
+      padding: 2rem; background: var(--vert-pale);
+      border-radius: 16px;
+    }
+    .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--vert); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.87rem; color: var(--gris); line-height: 1.7; }
+
+    /* ======== ÉQUIPE ======== */
+    #equipe { background: var(--creme); }
+    .equipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; margin-top: 2rem; }
+    .membre-card {
+      background: var(--blanc); border-radius: 20px;
+      padding: 2rem; text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.25s;
+    }
+    .membre-card:hover { transform: translateY(-5px); }
+    .membre-avatar {
+      width: 68px; height: 68px; border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; font-weight: 800;
+      color: var(--blanc);
+    }
+    .av-bleu   { background: linear-gradient(135deg, var(--bleu), var(--bleu-clair)); }
+    .av-violet { background: linear-gradient(135deg, var(--violet), #C39BD3); }
+    .av-vert   { background: linear-gradient(135deg, var(--vert), #82E0AA); }
+    .av-orange { background: linear-gradient(135deg, var(--orange), #F7C265); }
+    .av-rouge  { background: linear-gradient(135deg, var(--rouge), #F1948A); }
+    .membre-nom { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--texte); margin-bottom: 0.3rem; }
+    .membre-role {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block; padding: 0.25rem 0.8rem;
+      border-radius: 50px; margin-bottom: 0.8rem;
+    }
+    .role-bleu   { background: var(--bleu-pale);   color: var(--bleu); }
+    .role-violet { background: var(--violet-pale); color: var(--violet); }
+    .role-vert   { background: var(--vert-pale);   color: var(--vert); }
+    .role-orange { background: var(--orange-pale); color: var(--orange); }
+    .membre-desc { font-size: 0.82rem; line-height: 1.65; color: var(--gris); }
+
+    /* ======== CONTACT ======== */
+    #contact {
+      background: linear-gradient(135deg, var(--bleu) 0%, var(--violet) 100%);
+      color: var(--blanc);
+    }
+    .contact-inner { text-align: center; }
+    .contact-inner .section-tag { color: rgba(255,255,255,0.7); }
+    .contact-inner .section-title { color: var(--blanc); }
+    .contact-inner .section-title em { color: rgba(255,255,255,0.85); }
+    .contact-subtitle { font-size: 1rem; line-height: 1.8; opacity: 0.85; max-width: 560px; margin: 0 auto 2.5rem; }
+    .contact-cards { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .contact-card {
+      background: rgba(255,255,255,0.14);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 18px; padding: 1.5rem 2rem;
+      min-width: 200px; text-align: center;
+      transition: background 0.2s;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.22); }
+    .contact-card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .contact-card-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-bottom: 0.3rem; }
+    .contact-card-value { font-size: 0.9rem; font-weight: 600; }
+    .contact-card-value a { color: var(--blanc); text-decoration: none; }
+    .contact-card-value a:hover { text-decoration: underline; }
+
+    .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem; align-items: start; text-align: left; }
+    .contact-form-card {
+      background: rgba(255,255,255,0.98); color: var(--texte);
+      border-radius: 24px; padding: 2rem;
+      box-shadow: 0 18px 52px rgba(0,0,0,0.18);
+    }
+    .contact-form-card h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 0.45rem; }
+    .contact-form-card p { color: var(--gris); font-size: 0.86rem; line-height: 1.65; margin-bottom: 1.3rem; }
+    .contact-form-card .form-note { color: var(--gris); }
+    .contact-form-card .form-success { background: var(--vert-pale); }
+    .contact-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: var(--blanc); color: var(--bleu);
+      font-weight: 800; font-size: 0.9rem;
+      padding: 0.9rem 2rem; border-radius: 50px;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,0.2); }
+    .btn-outline-white {
+      background: transparent; color: var(--blanc);
+      border: 2px solid rgba(255,255,255,0.6);
+      font-weight: 800; font-size: 0.9rem;
+      padding: 0.9rem 2rem; border-radius: 50px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.15); border-color: var(--blanc); }
+
+    /* ======== FOOTER ======== */
+    footer {
+      background: var(--texte); color: rgba(255,255,255,0.55);
+      padding: 2rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--blanc); }
+    .footer-tagline { color: rgba(255,255,255,0.35); font-style: italic; }
+
+    /* ======== MOBILE ======== */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--creme); flex-direction: column; padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1); gap: 1rem; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      section { padding: 3.5rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .hero-badge { display: none; }
+      .valeurs-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .publics-grid { grid-template-columns: repeat(2,1fr); }
+      .preinscription-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-visual { order: -1; }
+      .hero-logo-card { width: min(300px, 88vw); }
+      .club-grid { grid-template-columns: 1fr; }
+      .club-cards { grid-template-columns: 1fr; }
+      .conversion-strip { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .equipe-grid { grid-template-columns: 1fr; }
+      .contact-cards { flex-direction: column; align-items: center; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+
+    /* ======== MODE ÉDITION TEXTE ======== */
+    .edit-toolbar {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 9999;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      max-width: min(92vw, 560px);
+      padding: 0.7rem;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(59,140,199,0.22);
+      border-radius: 18px;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.14);
+      backdrop-filter: blur(12px);
+    }
+    .edit-toolbar button {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.68rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      color: var(--blanc);
+      background: linear-gradient(135deg, var(--bleu), var(--violet));
+      box-shadow: 0 4px 14px rgba(59,140,199,0.24);
+    }
+    .edit-toolbar button.secondary {
+      color: var(--bleu);
+      background: var(--bleu-pale);
+      box-shadow: none;
+    }
+    .edit-toolbar button.warning {
+      color: var(--rouge);
+      background: #fff1f1;
+      box-shadow: none;
+    }
+    body.edit-mode [data-user-editable="true"] {
+      outline: 2px dashed rgba(59,140,199,0.45);
+      outline-offset: 4px;
+      border-radius: 8px;
+      cursor: text;
+    }
+    body.edit-mode [data-user-editable="true"]:focus {
+      outline: 3px solid rgba(155,107,181,0.55);
+      background: rgba(255,255,255,0.55);
+    }
+    .edit-help {
+      position: fixed;
+      right: 18px;
+      bottom: 92px;
+      z-index: 9998;
+      max-width: min(92vw, 420px);
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      background: rgba(44,44,62,0.94);
+      color: white;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.18);
+      display: none;
+    }
+    body.edit-mode .edit-help { display: block; }
+    @media (max-width: 768px) {
+      .edit-toolbar { left: 12px; right: 12px; bottom: 12px; justify-content: center; }
+      .edit-toolbar button { flex: 1 1 auto; }
+      .edit-help { left: 12px; right: 12px; bottom: 96px; }
+    }
+
+  </style>
+</head>
+<body class="">
+
+  <!-- ======== BARRE D'ÉDITION LOCALE ======== -->
+  <div class="edit-help" id="editHelp">
+    Mode édition actif : cliquez directement sur un texte pour le modifier. Les champs des formulaires restent fonctionnels. Cliquez ensuite sur « Télécharger HTML » pour récupérer votre version modifiée.
+  </div>
+  <div class="edit-toolbar" aria-label="Outils d'édition du site">
+    <button type="button" id="toggleEditBtn" onclick="toggleEditMode()">✅ Terminer l’édition</button>
+    <button type="button" class="secondary" onclick="saveLocalEdits()">💾 Sauvegarder ici</button>
+    <button type="button" class="secondary" onclick="downloadEditedHtml()">⬇️ Télécharger HTML</button>
+    <button type="button" class="warning" onclick="resetLocalEdits()">↺ Réinitialiser</button>
+  </div>
+
+
+  <!-- ======== NAV ======== -->
+  <nav id="navbar" style="box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 30px;">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-bubble"><img src="assets/logo.png" alt="Logo Les Bulles de Vie 97"></div>
+      <div class="nav-logo-text" data-user-editable="true" contenteditable="false" spellcheck="true">Les Bulles<br><span>de Vie 97</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#missions" data-user-editable="true" contenteditable="false" spellcheck="true">Nos missions</a></li>
+      <li><a href="#services" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement</a></li>
+      <li><a href="#club-loisirs" data-user-editable="true" contenteditable="false" spellcheck="true">Club loisirs</a></li>
+      <li><a href="#publics" data-user-editable="true" contenteditable="false" spellcheck="true">Publics</a></li>
+      <li><a href="#equipe" data-user-editable="true" contenteditable="false" spellcheck="true">L'équipe</a></li>
+      <li><a href="#contact" data-user-editable="true" contenteditable="false" spellcheck="true">Contact</a></li>
+      <li><a href="#contact" class="nav-cta" data-user-editable="true" contenteditable="false" spellcheck="true">Être rappelé</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero" id="accueil">
+    <div class="hero-bg"></div>
+    <div class="bubble-deco b1"></div>
+    <div class="bubble-deco b2"></div>
+    <div class="bubble-deco b3"></div>
+    <div class="bubble-deco b4"></div>
+    <div class="bubble-deco b5"></div>
+    <div class="bubble-deco b6"></div>
+
+    <div class="hero-layout">
+      <div class="hero-inner">
+        <p class="hero-eyebrow" data-user-editable="true" contenteditable="false" spellcheck="true"><span class="eyebrow-dot"></span> Association Loi 1901 — Guadeloupe</p>
+        <h1 class="hero-title" data-user-editable="true" contenteditable="false" spellcheck="true">
+          <em>Écouter.</em><br>
+          <span class="accent">Accompagner.</span><br>
+          Créer du lien.
+        </h1>
+        <p class="hero-subtitle" data-user-editable="true" contenteditable="false" spellcheck="true">
+          Les Bulles de Vie 97 accompagne les enfants, adolescents et adultes avec TND ou handicap, soutient les familles et développe des activités adaptées hors domicile pour créer des temps de répit, d'apprentissage et de lien social.
+        </p>
+        <div class="hero-tagline">
+          <span class="tag-pill tag-bleu" data-user-editable="true" contenteditable="false" spellcheck="true">🏡 Accompagnement à domicile</span>
+          <span class="tag-pill tag-violet" data-user-editable="true" contenteditable="false" spellcheck="true">🧠 Handicap TND &amp; Senior<br></span>
+          <span class="tag-pill tag-vert" data-user-editable="true" contenteditable="false" spellcheck="true">🎯 Club de loisirs adaptés</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary" data-user-editable="true" contenteditable="false" spellcheck="true">🫧 Demander un premier échange</a>
+          <a href="#club-loisirs" class="btn-secondary" data-user-editable="true" contenteditable="false" spellcheck="true">Voir le club de loisirs</a>
+        </div>
+        <p class="micro-proof" data-user-editable="true" contenteditable="false" spellcheck="true"><strong>Pré-inscription gratuite.</strong> Une réponse humaine, claire et orientée solution.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-logo-card"><img src="assets/logo.png" alt=""></div>
+      </div>
+    </div>
+
+    <div class="hero-badge">
+      <span class="hero-badge-num">48h</span>
+      <span class="hero-badge-label">Premier retour</span>
+      <span class="hero-badge-sub">Pré-inscription sans engagement</span>
+    </div>
+  </section>
+
+  <!-- ======== MISSIONS ======== -->
+  <section id="missions">
+    <div class="section-inner">
+      <div class="reveal visible">
+        <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ Qui sommes-nous</p>
+        <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Nos <em>missions</em> &amp; valeurs</h2>
+        <p class="section-intro" data-user-editable="true" contenteditable="false" spellcheck="true">
+          Nous croyons que chaque personne, quelle que soit sa singularité, mérite un accompagnement à la hauteur de ses besoins. Nos actions s'inscrivent dans une démarche inclusive, participative et ancrée dans la réalité guadeloupéenne.
+        </p>
+      </div>
+      <div class="valeurs-grid">
+        <div class="valeur-card c-bleu reveal visible">
+          <div class="valeur-icon">🤝</div>
+          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Services à la personne (SAP)</div>
+          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement à domicile dans les actes de la vie quotidienne : repas, mobilité, routines, stimulation cognitive, communication et prévention des comportements-problèmes, selon le cadre SAP applicable.</div>
+        </div>
+        <div class="valeur-card c-violet reveal visible" style="transition-delay:0.1s">
+          <div class="valeur-icon">🧩</div>
+          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement éducatif TND</div>
+          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien éducatif à domicile pour les personnes présentant des besoins spécifiques : autisme, TDAH, DI et autres troubles du neurodéveloppement. Approche basée sur les données (ABA, CAA).</div>
+        </div>
+        <div class="valeur-card c-vert reveal visible" style="transition-delay:0.2s">
+          <div class="valeur-icon">🏃</div>
+          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Activité physique adaptée (APA)</div>
+          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Activités sportives et motrices adaptées aux besoins de chacun, dans une logique de santé, d'autonomie, de plaisir corporel et de participation sociale.</div>
+        </div>
+        <div class="valeur-card c-orange reveal visible" style="transition-delay:0.1s">
+          <div class="valeur-icon">🎨</div>
+          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Ateliers sensoriels &amp; loisirs</div>
+          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Ateliers ludiques, sensoriels et éducatifs pour soutenir le développement des compétences motrices, cognitives, émotionnelles et communicationnelles des bénéficiaires.</div>
+        </div>
+        <div class="valeur-card c-rouge reveal visible" style="transition-delay:0.2s">
+          <div class="valeur-icon">💬</div>
+          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Communication augmentative (CAA)</div>
+          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Promotion et mise en œuvre d'outils de communication alternative et augmentative pour favoriser l'expression, la participation et l'inclusion de toutes les personnes.</div>
+        </div>
+        <div class="valeur-card c-bleu2 reveal visible" style="transition-delay:0.3s">
+          <div class="valeur-icon">💪</div>
+          <div class="valeur-title" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien aux familles &amp; aidants</div>
+          <div class="valeur-text" data-user-editable="true" contenteditable="false" spellcheck="true">Temps de répit, pair-aidance, écoute, information et orientation. Parce qu'accompagner un proche est un engagement total qui nécessite d'être soi-même soutenu.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SERVICES SAP ======== -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="services-header reveal visible">
+        <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ Services à la personne</p>
+        <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Ce que nous <em>proposons</em></h2>
+        <p class="section-intro" data-user-editable="true" contenteditable="false" spellcheck="true">Une offre progressive : accompagnement à domicile, soutien des familles et activités adaptées hors domicile. Les services SAP seront structurés selon le cadre réglementaire applicable, en mode prestataire ou mandataire.</p>
+      </div>
+
+      <div class="lancement-banner reveal visible">
+        <div class="lancement-icon">🚀</div>
+        <div class="lancement-text">
+          <strong>Lancement des services SAP — Janvier 2027</strong>
+          <span>Les pré-inscriptions sont ouvertes dès maintenant. Soyez parmi les premiers à bénéficier de nos services.</span>
+        </div>
+        <a href="#preinscription" class="lancement-btn" data-user-editable="true" contenteditable="false" spellcheck="true">Se pré-inscrire →</a>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal visible">
+          <div class="service-icon-wrap si-bleu">🏡</div>
+          <div class="service-body">
+            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement dans la vie quotidienne</div>
+            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien aux routines, aux repas, à la mobilité, aux tâches du quotidien, à la communication et à l'autonomie pour les personnes avec TND ou handicap.</div>
+          </div>
+        </div>
+        <div class="service-card reveal visible" style="transition-delay:0.1s">
+          <div class="service-icon-wrap si-violet">📚</div>
+          <div class="service-body">
+            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Accompagnement éducatif à domicile</div>
+            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien éducatif spécialisé pour les personnes présentant des besoins éducatifs particuliers. Coordination avec les familles, aidants et structures médico-sociales.</div>
+          </div>
+        </div>
+        <div class="service-card reveal visible" style="transition-delay:0.1s">
+          <div class="service-icon-wrap si-vert">👶</div>
+          <div class="service-body">
+            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Garde à domicile</div>
+            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Garde spécialisée pour les personnes en situation de handicap et/ou issues de la neurodiversité. Intervenants qualifiés, adaptés aux profils et aux besoins.</div>
+          </div>
+        </div>
+        <div class="service-card reveal visible" style="transition-delay:0.2s">
+          <div class="service-icon-wrap si-orange">👨‍👩‍👧</div>
+          <div class="service-body">
+            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien à la parentalité</div>
+            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Accueil, écoute, information et orientation des familles. Guidance parentale et accompagnement dans les démarches administratives (NOVA, CESU…).</div>
+          </div>
+        </div>
+        <div class="service-card reveal visible">
+          <div class="service-icon-wrap si-violet">🧭</div>
+          <div class="service-body">
+            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Coordination et orientation des parcours</div>
+            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Aide à clarifier les besoins, prioriser les démarches et articuler les interventions autour de la personne, avec la famille et les partenaires.</div>
+          </div>
+        </div>
+        <div class="service-card reveal visible" style="transition-delay:0.1s">
+          <div class="service-icon-wrap si-vert">☀️</div>
+          <div class="service-body">
+            <div class="service-title" data-user-editable="true" contenteditable="false" spellcheck="true">Temps de répit &amp; club de loisirs</div>
+            <div class="service-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Organisation de temps collectifs adaptés : sport, loisirs manuels, sensoriels et culturels, pour soutenir la qualité de vie, la socialisation et le répit familial.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======== CLUB DE LOISIRS ======== -->
+  <section id="club-loisirs">
+    <div class="section-inner">
+      <div class="club-grid">
+        <div class="club-panel reveal visible">
+          <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ Hors domicile</p>
+          <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Le <em>club de loisirs</em> adapté</h2>
+          <p data-user-editable="true" contenteditable="false" spellcheck="true">
+            Le projet : proposer périodiquement des temps collectifs structurés pour les enfants, adolescents et adultes avec TND ou handicap, dans un cadre contenant, lisible et bienveillant.
+          </p>
+          <p data-user-editable="true" contenteditable="false" spellcheck="true">
+            Les activités seront pensées pour favoriser la participation, la motivation, la communication, l'autonomie et le lien social — sans pression de performance.
+          </p>
+          <ul class="club-list">
+            <li>📅 Mercredi, samedi et périodes de vacances scolaires</li>
+            <li>🧩 Petits groupes, rythme adapté et repères visuels possibles</li>
+            <li>🤝 Temps de répit indirect pour les familles et les aidants</li>
+          </ul>
+          <div class="club-cta">
+            <a href="#contact" class="btn-primary" data-user-editable="true" contenteditable="false" spellcheck="true">Être informé des premiers créneaux</a>
+            <a href="#preinscription" class="btn-secondary" data-user-editable="true" contenteditable="false" spellcheck="true">Me pré-inscrire</a>
+          </div>
+        </div>
+        <div class="club-cards">
+          <div class="club-card reveal visible" style="transition-delay:0.05s">
+            <div class="club-card-icon">🏃</div>
+            <div class="club-card-title">Sport adapté</div>
+            <div class="club-card-text">Parcours moteurs, jeux corporels, coordination, équilibre, engagement progressif et alternatives si l'activité bloque.</div>
+          </div>
+          <div class="club-card reveal visible" style="transition-delay:0.1s">
+            <div class="club-card-icon">🎨</div>
+            <div class="club-card-title">Loisirs manuels</div>
+            <div class="club-card-text">Créations simples, manipulations, bricolages guidés, activités concrètes et valorisantes.</div>
+          </div>
+          <div class="club-card reveal visible" style="transition-delay:0.15s">
+            <div class="club-card-icon">🫧</div>
+            <div class="club-card-title">Sensoriel</div>
+            <div class="club-card-text">Explorations douces, régulation, expériences tactiles, visuelles ou sonores adaptées aux profils sensoriels.</div>
+          </div>
+          <div class="club-card reveal visible" style="transition-delay:0.2s">
+            <div class="club-card-icon">🎭</div>
+            <div class="club-card-title">Culturel</div>
+            <div class="club-card-text">Sorties, découvertes, médiations culturelles et temps collectifs pour ouvrir l'accès à la cité.</div>
+          </div>
+        </div>
+      </div>
+      <div class="conversion-strip reveal visible">
+        <div class="conversion-item"><strong>1. Vous signalez votre besoin</strong><span>Âge, profil, attentes, disponibilités et points de vigilance.</span></div>
+        <div class="conversion-item"><strong>2. Nous qualifions la demande</strong><span>Objectif : proposer un format réaliste, sécurisé et utile.</span></div>
+        <div class="conversion-item"><strong>3. Vous recevez les créneaux</strong><span>Vous êtes informé en priorité dès l'ouverture des inscriptions.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PUBLICS ======== -->
+  <section id="publics">
+    <div class="section-inner">
+      <div class="reveal visible">
+        <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ À qui s'adresse-t-on ?</p>
+        <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Nos <em>publics</em></h2>
+        <p class="section-intro" data-user-editable="true" contenteditable="false" spellcheck="true">Nous accueillons les personnes avec TND ou handicap, ainsi que les familles et aidants qui ont besoin d'un accompagnement lisible, humain et adapté.</p>
+      </div>
+      <div class="publics-grid">
+        <div class="public-card pc-bleu reveal visible">
+          <div class="public-icon">🧒</div>
+          <div class="public-title" data-user-editable="true" contenteditable="false" spellcheck="true">Enfants &amp; adolescents TND</div>
+          <div class="public-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Autisme, TDAH, DI et autres troubles du neurodéveloppement. Accompagnement dès le diagnostic.</div>
+        </div>
+        <div class="public-card pc-violet reveal visible" style="transition-delay:0.1s">
+          <div class="public-icon">🧑</div>
+          <div class="public-title" data-user-editable="true" contenteditable="false" spellcheck="true">Adultes en situation de handicap ou de grand âge</div>
+          <div class="public-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Soutien à l'autonomie, à la vie sociale et à l'insertion pour les adultes avec handicap intellectuel ou TND.</div>
+        </div>
+        <div class="public-card pc-orange reveal visible" style="transition-delay:0.2s">
+          <div class="public-icon">👨‍👩‍👧</div>
+          <div class="public-title" data-user-editable="true" contenteditable="false" spellcheck="true">Familles &amp; aidants</div>
+          <div class="public-desc" data-user-editable="true" contenteditable="false" spellcheck="true">Parents, proches aidants, professionnels — parce qu'accompagner demande aussi d'être soutenu.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PRÉ-INSCRIPTION ======== -->
+  <section id="preinscription">
+    <div class="section-inner">
+      <div class="preinscription-grid">
+        <div class="preinscription-info reveal visible">
+          <p class="section-tag" data-user-editable="true" contenteditable="false" spellcheck="true">✦ Lancement SAP — Janvier 2027</p>
+          <h2 class="section-title" data-user-editable="true" contenteditable="false" spellcheck="true">Pré-inscription<br><em>gratuite</em></h2>
+          <p data-user-editable="true" contenteditable="false" spellcheck="true">Nos services SAP seront opérationnels en janvier 2027. En vous pré-inscrivant dès aujourd'hui, vous garantissez votre place parmi les premiers bénéficiaires et restez informé(e) de l'avancement du projet.</p>
+          <p data-user-editable="true" contenteditable="false" spellcheck="true">La pré-inscription est sans engagement. Elle nous permet simplement d'évaluer les besoins et d'adapter nos ressources à la demande.</p>
+          <ul class="preinscription-avantages">
+            <li><span class="avantage-dot"></span> Priorité d'accès au lancement</li>
+            <li><span class="avantage-dot"></span> Information en avant-première</li>
+            <li><span class="avantage-dot"></span> Évaluation personnalisée des besoins</li>
+            <li><span class="avantage-dot"></span> Sans engagement de votre part</li>
+            <li><span class="avantage-dot"></span> Réponse sous 48h</li>
+          </ul>
+        </div>
+
+        <div class="form-card reveal visible" style="transition-delay:0.15s">
+          <h3 data-user-editable="true" contenteditable="false" spellcheck="true">Formulaire de pré-inscription</h3>
+          <p data-user-editable="true" contenteditable="false" spellcheck="true">Remplissez ce formulaire pour exprimer votre intérêt — nous vous recontacterons.</p>
+
+          <div id="formWrap">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Prénom *</label>
+                <input type="text" id="prenom" placeholder="Marie" required="">
+              </div>
+              <div class="form-group">
+                <label>Nom *</label>
+                <input type="text" id="nom" placeholder="Dupont" required="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" id="email" placeholder="marie@exemple.com" required="">
+            </div>
+            <div class="form-group">
+              <label>Téléphone</label>
+              <input type="tel" id="tel" placeholder="06 90 XX XX XX">
+            </div>
+            <div class="form-group">
+              <label>Commune de résidence *</label>
+              <select id="commune" required="">
+                <option value="">-- Choisir --</option>
+                <option>Baie-Mahault</option>
+                <option>Les Abymes</option>
+                <option>Petit-Bourg</option>
+                <option>Pointe-à-Pitre</option>
+                <option>Sainte-Anne</option>
+                <option>Le Gosier</option>
+                <option>Capesterre-Belle-Eau</option>
+                <option>Basse-Terre</option>
+                <option>Saint-François</option>
+                <option>Autre commune</option>
+              </select>
+            </div>
