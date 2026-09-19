@@ -14,9 +14,6 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://main--lbv97.netlify.app/">
   <meta property="og:locale" content="fr_GP">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap" rel="stylesheet">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -30,12 +27,12 @@
 
   <style>
     :root {
-      --bleu:       #3B8CC7;
+      --bleu:       #276E9F;
       --bleu-clair: #6DB8E8;
       --bleu-pale:  #E8F4FC;
-      --violet:     #9B6BB5;
+      --violet:     #7A4E95;
       --violet-pale:#F0E8F8;
-      --vert:       #5BB87A;
+      --vert:       #247A45;
       --vert-pale:  #E6F7EC;
       --orange:     #F4A234;
       --orange-pale:#FEF3E2;
@@ -43,7 +40,7 @@
       --creme:      #FDFBF8;
       --blanc:      #FFFFFF;
       --texte:      #2C2C3E;
-      --gris:       #7A7A8C;
+      --gris:       #676777;
       --gris-clair: #F0EFF7;
     }
 
@@ -64,6 +61,7 @@
       background: rgba(253,251,248,0.94);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(59,140,199,0.15);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
       transition: box-shadow 0.3s;
     }
     .nav-logo {
@@ -109,8 +107,12 @@
       transition: opacity 0.2s !important;
     }
     .nav-cta:hover { opacity: 0.88 !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 7px;
+      border: 0; background: transparent;
+    }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--bleu); border-radius: 2px; transition: all 0.3s; }
+    .hamburger:focus-visible { outline: 3px solid var(--jaune); outline-offset: 4px; border-radius: 4px; }
 
     /* ======== HERO ======== */
     .hero {
@@ -122,7 +124,12 @@
     }
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(160deg, #E8F4FC 0%, #F0E8F8 40%, #FEF3E2 80%, #E6F7EC 100%);
+      background:
+        radial-gradient(ellipse at 16% 12%, rgba(105, 190, 227, 0.34) 0, rgba(105, 190, 227, 0.12) 18%, transparent 40%),
+        radial-gradient(ellipse at 84% 18%, rgba(243, 170, 192, 0.30) 0, rgba(243, 170, 192, 0.10) 20%, transparent 43%),
+        radial-gradient(ellipse at 72% 86%, rgba(255, 205, 112, 0.28) 0, rgba(255, 205, 112, 0.09) 20%, transparent 42%),
+        radial-gradient(ellipse at 18% 82%, rgba(104, 207, 190, 0.20) 0, transparent 35%),
+        linear-gradient(160deg, #edf8fc 0%, #f9f1f8 46%, #fff8eb 78%, #eef9f3 100%);
     }
     /* Bubbles déco */
     .bubble-deco {
@@ -279,6 +286,11 @@
 
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
+    .delay-50 { transition-delay: 0.05s; }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-150 { transition-delay: 0.15s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
 
     /* ======== VALEURS ======== */
     #missions { background: var(--blanc); }
@@ -588,7 +600,32 @@
     }
     footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
     footer a:hover { color: var(--blanc); }
-    .footer-tagline { color: rgba(255,255,255,0.35); font-style: italic; }
+    .footer-tagline { color: rgba(255,255,255,0.62); font-style: italic; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+      .bubble-deco,
+      .hero-visual,
+      .micro-proof,
+      .hero-eyebrow,
+      .hero-title,
+      .hero-subtitle,
+      .hero-tagline,
+      .hero-actions,
+      .hero-badge,
+      .reveal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
 
     /* ======== MOBILE ======== */
     @media (max-width: 768px) {
@@ -624,12 +661,12 @@
 <body class="">
 
   <!-- ======== NAV ======== -->
-  <nav id="navbar" style="box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 30px;">
-    <a href="#" class="nav-logo">
+  <nav id="navbar">
+    <a href="#accueil" class="nav-logo">
       <div class="nav-logo-bubble"><img src="assets/logo-sans-texte.webp" width="320" height="320" alt="Logo Les Bulles de Vie 97"></div>
       <div class="nav-logo-text">Les Bulles<br><span>de Vie 97</span></div>
     </a>
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links" id="navLinks" aria-label="Navigation principale">
       <li><a href="#missions">Nos missions</a></li>
       <li><a href="#services">Accompagnement</a></li>
       <li><a href="#club-loisirs">Club loisirs</a></li>
@@ -637,9 +674,9 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="#contact" class="nav-cta">Être rappelé</a></li>
     </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <button class="hamburger" id="hamburger" type="button" aria-label="Ouvrir le menu" aria-controls="navLinks" aria-expanded="false">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </nav>
 
   <!-- ======== HERO ======== -->
@@ -702,27 +739,27 @@
           <div class="valeur-title">Services à la personne (SAP)</div>
           <div class="valeur-text">Accompagnement à domicile dans les actes de la vie quotidienne : repas, mobilité, routines, stimulation cognitive, communication et prévention des comportements-problèmes, selon le cadre SAP applicable.</div>
         </div>
-        <div class="valeur-card c-violet reveal visible" style="transition-delay:0.1s">
+        <div class="valeur-card c-violet reveal visible delay-100">
           <div class="valeur-icon">🧩</div>
           <div class="valeur-title">Accompagnement éducatif TND</div>
           <div class="valeur-text">Soutien éducatif à domicile pour les personnes présentant des besoins spécifiques : autisme, TDAH, DI et autres troubles du neurodéveloppement. Approche basée sur les données (ABA, CAA).</div>
         </div>
-        <div class="valeur-card c-vert reveal visible" style="transition-delay:0.2s">
+        <div class="valeur-card c-vert reveal visible delay-200">
           <div class="valeur-icon">🏃</div>
           <div class="valeur-title">Activité physique adaptée (APA)</div>
           <div class="valeur-text">Activités sportives et motrices adaptées aux besoins de chacun, dans une logique de santé, d'autonomie, de plaisir corporel et de participation sociale.</div>
         </div>
-        <div class="valeur-card c-orange reveal visible" style="transition-delay:0.1s">
+        <div class="valeur-card c-orange reveal visible delay-100">
           <div class="valeur-icon">🎨</div>
           <div class="valeur-title">Ateliers sensoriels &amp; loisirs</div>
           <div class="valeur-text">Ateliers ludiques, sensoriels et éducatifs pour soutenir le développement des compétences motrices, cognitives, émotionnelles et communicationnelles des bénéficiaires.</div>
         </div>
-        <div class="valeur-card c-rouge reveal visible" style="transition-delay:0.2s">
+        <div class="valeur-card c-rouge reveal visible delay-200">
           <div class="valeur-icon">💬</div>
           <div class="valeur-title">Communication augmentative (CAA)</div>
           <div class="valeur-text">Promotion et mise en œuvre d'outils de communication alternative et augmentative pour favoriser l'expression, la participation et l'inclusion de toutes les personnes.</div>
         </div>
-        <div class="valeur-card c-bleu2 reveal visible" style="transition-delay:0.3s">
+        <div class="valeur-card c-bleu2 reveal visible delay-300">
           <div class="valeur-icon">💪</div>
           <div class="valeur-title">Soutien aux familles &amp; aidants</div>
           <div class="valeur-text">Temps de répit, pair-aidance, écoute, information et orientation. Parce qu'accompagner un proche est un engagement total qui nécessite d'être soi-même soutenu.</div>
@@ -757,21 +794,21 @@
             <div class="service-desc">Soutien aux routines, aux repas, à la mobilité, aux tâches du quotidien, à la communication et à l'autonomie pour les personnes avec TND ou handicap.</div>
           </div>
         </div>
-        <div class="service-card reveal visible" style="transition-delay:0.1s">
+        <div class="service-card reveal visible delay-100">
           <div class="service-icon-wrap si-violet">📚</div>
           <div class="service-body">
             <div class="service-title">Accompagnement éducatif à domicile</div>
             <div class="service-desc">Soutien éducatif spécialisé pour les personnes présentant des besoins éducatifs particuliers. Coordination avec les familles, aidants et structures médico-sociales.</div>
           </div>
         </div>
-        <div class="service-card reveal visible" style="transition-delay:0.1s">
+        <div class="service-card reveal visible delay-100">
           <div class="service-icon-wrap si-vert">👶</div>
           <div class="service-body">
             <div class="service-title">Garde à domicile</div>
             <div class="service-desc">Garde spécialisée pour les personnes en situation de handicap et/ou issues de la neurodiversité. Intervenants qualifiés, adaptés aux profils et aux besoins.</div>
           </div>
         </div>
-        <div class="service-card reveal visible" style="transition-delay:0.2s">
+        <div class="service-card reveal visible delay-200">
           <div class="service-icon-wrap si-orange">👨‍👩‍👧</div>
           <div class="service-body">
             <div class="service-title">Soutien à la parentalité</div>
@@ -785,7 +822,7 @@
             <div class="service-desc">Aide à clarifier les besoins, prioriser les démarches et articuler les interventions autour de la personne, avec la famille et les partenaires.</div>
           </div>
         </div>
-        <div class="service-card reveal visible" style="transition-delay:0.1s">
+        <div class="service-card reveal visible delay-100">
           <div class="service-icon-wrap si-vert">☀️</div>
           <div class="service-body">
             <div class="service-title">Temps de répit &amp; club de loisirs</div>
@@ -821,22 +858,22 @@
           </div>
         </div>
         <div class="club-cards">
-          <div class="club-card reveal visible" style="transition-delay:0.05s">
+          <div class="club-card reveal visible delay-50">
             <div class="club-card-icon">🏃</div>
             <div class="club-card-title">Sport adapté</div>
             <div class="club-card-text">Parcours moteurs, jeux corporels, coordination, équilibre, engagement progressif et alternatives si l'activité bloque.</div>
           </div>
-          <div class="club-card reveal visible" style="transition-delay:0.1s">
+          <div class="club-card reveal visible delay-100">
             <div class="club-card-icon">🎨</div>
             <div class="club-card-title">Loisirs manuels</div>
             <div class="club-card-text">Créations simples, manipulations, bricolages guidés, activités concrètes et valorisantes.</div>
           </div>
-          <div class="club-card reveal visible" style="transition-delay:0.15s">
+          <div class="club-card reveal visible delay-150">
             <div class="club-card-icon">🫧</div>
             <div class="club-card-title">Sensoriel</div>
             <div class="club-card-text">Explorations douces, régulation, expériences tactiles, visuelles ou sonores adaptées aux profils sensoriels.</div>
           </div>
-          <div class="club-card reveal visible" style="transition-delay:0.2s">
+          <div class="club-card reveal visible delay-200">
             <div class="club-card-icon">🎭</div>
             <div class="club-card-title">Culturel</div>
             <div class="club-card-text">Sorties, découvertes, médiations culturelles et temps collectifs pour ouvrir l'accès à la cité.</div>
@@ -865,12 +902,12 @@
           <div class="public-title">Enfants &amp; adolescents TND</div>
           <div class="public-desc">Autisme, TDAH, DI et autres troubles du neurodéveloppement. Accompagnement dès le diagnostic.</div>
         </div>
-        <div class="public-card pc-violet reveal visible" style="transition-delay:0.1s">
+        <div class="public-card pc-violet reveal visible delay-100">
           <div class="public-icon">🧑</div>
           <div class="public-title">Adultes en situation de handicap ou de grand âge</div>
           <div class="public-desc">Soutien à l'autonomie, à la vie sociale et à l'insertion pour les adultes avec handicap intellectuel ou TND.</div>
         </div>
-        <div class="public-card pc-orange reveal visible" style="transition-delay:0.2s">
+        <div class="public-card pc-orange reveal visible delay-200">
           <div class="public-icon">👨‍👩‍👧</div>
           <div class="public-title">Familles &amp; aidants</div>
           <div class="public-desc">Parents, proches aidants, professionnels — parce qu'accompagner demande aussi d'être soutenu.</div>
@@ -897,7 +934,7 @@
           </ul>
         </div>
 
-        <div class="form-card reveal visible" style="transition-delay:0.15s">
+        <div class="form-card reveal visible delay-150">
           <h3>Formulaire de pré-inscription</h3>
           <p>Remplissez ce formulaire pour exprimer votre intérêt — nous vous recontacterons.</p>
 
@@ -938,15 +975,10 @@
                 <option>Autre commune</option>
               </select>
             </div>
-            <button class="form-submit" type="submit">Envoyer ma pré-inscription</button>
-            <p class="form-note">Les informations transmises sont utilisées uniquement pour répondre à votre demande de pré-inscription. Merci de ne pas indiquer d'informations médicales ou personnelles sensibles.</p>
+            <button class="form-submit" type="submit">Préparer mon e-mail de pré-inscription</button>
+            <p class="form-note">Votre logiciel e-mail s’ouvrira avec votre demande déjà préparée. Merci de ne pas indiquer d'informations médicales ou personnelles sensibles.</p>
             <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
           </form>
-          <div class="form-success" id="form-success" role="status" aria-live="polite">
-            <div class="success-icon" aria-hidden="true">✓</div>
-            <h4>Votre demande a bien été envoyée</h4>
-            <p>Merci pour votre confiance. L'association reviendra vers vous dès que possible.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -971,42 +1003,49 @@
   </footer>
 
   <script>
+    const hamburger = document.getElementById('hamburger');
+
     function toggleMenu() {
       const menu = document.getElementById('navLinks');
-      menu.classList.toggle('open');
+      const isOpen = menu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
     }
 
+    hamburger.addEventListener('click', toggleMenu);
+
     document.querySelectorAll('.nav-links a').forEach((link) => {
-      link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.getElementById('navLinks').classList.contains('open')) {
+        toggleMenu();
+        hamburger.focus();
+      }
     });
 
     const form = document.getElementById('preinscription-form');
     const feedback = document.getElementById('form-feedback');
-    const success = document.getElementById('form-success');
-
-    form.addEventListener('submit', async (event) => {
+    form.addEventListener('submit', (event) => {
       event.preventDefault();
-      const submitButton = form.querySelector('button[type="submit"]');
       feedback.className = 'form-feedback';
-      feedback.textContent = '';
-      submitButton.disabled = true;
-      submitButton.textContent = 'Envoi en cours…';
-
-      try {
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString(),
-        });
-        if (!response.ok) throw new Error('Submission failed');
-        form.hidden = true;
-        success.style.display = 'block';
-      } catch (error) {
-        feedback.className = 'form-feedback is-error';
-        feedback.textContent = 'L’envoi n’a pas abouti. Vérifiez votre connexion puis réessayez.';
-        submitButton.disabled = false;
-        submitButton.textContent = 'Envoyer ma pré-inscription';
-      }
+      feedback.textContent = 'Votre logiciel e-mail va s’ouvrir avec votre demande préparée. Vérifiez-la puis envoyez-la.';
+      feedback.style.display = 'block';
+      const values = new FormData(form);
+      const body = [
+        'Bonjour,', '', 'Je souhaite effectuer une pré-inscription.', '',
+        `Prénom : ${values.get('prenom')}`,
+        `Nom : ${values.get('nom')}`,
+        `E-mail : ${values.get('email')}`,
+        `Téléphone : ${values.get('telephone') || 'Non renseigné'}`,
+        `Commune : ${values.get('commune')}`, '', 'Merci.',
+      ].join('\n');
+      window.location.href = `mailto:lesbullesdevie97@gmail.com?subject=${encodeURIComponent('Pré-inscription — Les Bulles de Vie 97')}&body=${encodeURIComponent(body)}`;
     });
 
     document.getElementById('current-year').textContent = new Date().getFullYear();
