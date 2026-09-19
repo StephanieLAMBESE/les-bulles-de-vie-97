@@ -406,6 +406,20 @@
     .section-intro + .section-intro { margin-top: -1.9rem; }
 
 
+    /* Intro des missions : le texte, et la photo emblématique du dépliant */
+    .missions-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 2.5rem;
+      align-items: center;
+    }
+    .missions-photo {
+      align-self: center;
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10), 0 0 0 5px rgba(255,255,255,0.8);
+    }
+
     /* Les quatre piliers du dépliant */
     .piliers {
       list-style: none;
@@ -523,7 +537,14 @@
     .pc-violet { background: var(--violet-pale); }
     .pc-vert   { background: var(--vert-pale); }
     .pc-orange { background: var(--orange-pale); }
-    .public-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    /* Médaillons ronds, comme les photos du dépliant */
+    .public-photo {
+      width: 88px; height: 88px;
+      display: block; margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.10), 0 0 0 4px rgba(255,255,255,0.75);
+    }
     .public-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--texte); margin-bottom: 0.5rem; }
     .public-desc { font-size: 0.82rem; line-height: 1.6; color: var(--gris); }
 
@@ -536,7 +557,15 @@
       border-radius: 28px; padding: 2.2rem;
       box-shadow: 0 14px 44px rgba(59,140,199,0.12);
     }
+    .club-entete { display: flex; align-items: center; gap: 1.5rem; justify-content: space-between; }
+    .club-entete .section-title { margin-bottom: 0; }
+    .club-photo {
+      width: 92px; height: 92px; flex-shrink: 0;
+      border-radius: 50%;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.10), 0 0 0 4px rgba(255,255,255,0.8);
+    }
     .club-panel p { font-size: 0.95rem; color: var(--gris); line-height: 1.8; margin-bottom: 1rem; }
+    .club-panel .club-entete + p { margin-top: 1.2rem; }
     .club-list { list-style: none; display: grid; gap: 0.75rem; margin: 1.5rem 0 0; }
     .club-list li {
       display: flex; gap: 0.75rem; align-items: flex-start;
@@ -728,6 +757,10 @@
       .preinscription-grid { grid-template-columns: 1fr; gap: 2rem; }
       .piliers { grid-template-columns: 1fr; padding: 1.25rem; gap: 1rem; }
       .contact-voies { grid-template-columns: 1fr; }
+      .missions-intro { grid-template-columns: 1fr; justify-items: start; }
+      .missions-photo { order: -1; margin-bottom: 1.5rem; width: 120px; height: 120px; }
+      .club-entete { flex-direction: column-reverse; align-items: flex-start; gap: 1.1rem; }
+      .public-photo { width: 76px; height: 76px; }
       .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
       .hero-visual { order: -1; }
       .hero-logo-card { width: min(300px, 88vw); }
@@ -816,7 +849,8 @@
   <!-- ======== MISSIONS ======== -->
   <section id="missions">
     <div class="section-inner">
-      <div>
+      <div class="missions-intro">
+        <div class="missions-texte">
         <p class="section-tag"><svg class="grappe" width="20" height="13" viewBox="0 0 20 13" aria-hidden="true"><circle cx="5.4" cy="6.5" r="4.8" fill="#6DB8E8" opacity=".55"/><circle cx="11.8" cy="5" r="3.6" fill="#EFA0BA" opacity=".6"/><circle cx="16.2" cy="8.8" r="2.7" fill="#F5CE70" opacity=".65"/></svg> Qui sommes-nous</p>
         <h2 class="section-title">Nos <em>missions</em> &amp; valeurs</h2>
         <p class="section-intro">
@@ -825,6 +859,8 @@
         <p class="section-intro">
           Notre mission est d'améliorer la qualité de vie des personnes présentant des troubles du neurodéveloppement ou des pathologies neurodégénératives, ainsi que celle de leurs proches aidants. Nous développons pour cela des solutions concrètes, accessibles et adaptées, qui favorisent l'épanouissement, l'autonomie et la participation de chacun à la vie de la cité.
         </p>
+        </div>
+        <img class="missions-photo" src="assets/photo-missions.webp" width="144" height="144" alt="Deux mains tenant un cœur composé de pièces de puzzle colorées" loading="lazy">
       </div>
 
       <!-- Les quatre piliers du dépliant, avec ses propres icônes -->
@@ -964,8 +1000,13 @@
     <div class="section-inner">
       <div class="club-grid">
         <div class="club-panel">
-          <p class="section-tag"><svg class="grappe" width="20" height="13" viewBox="0 0 20 13" aria-hidden="true"><circle cx="5.4" cy="6.5" r="4.8" fill="#6DB8E8" opacity=".55"/><circle cx="11.8" cy="5" r="3.6" fill="#EFA0BA" opacity=".6"/><circle cx="16.2" cy="8.8" r="2.7" fill="#F5CE70" opacity=".65"/></svg> Hors domicile</p>
-          <h2 class="section-title">Le <em>club de loisirs</em> adapté</h2>
+          <div class="club-entete">
+            <div>
+              <p class="section-tag"><svg class="grappe" width="20" height="13" viewBox="0 0 20 13" aria-hidden="true"><circle cx="5.4" cy="6.5" r="4.8" fill="#6DB8E8" opacity=".55"/><circle cx="11.8" cy="5" r="3.6" fill="#EFA0BA" opacity=".6"/><circle cx="16.2" cy="8.8" r="2.7" fill="#F5CE70" opacity=".65"/></svg> Hors domicile</p>
+              <h2 class="section-title">Le <em>club de loisirs</em> adapté</h2>
+            </div>
+            <img class="club-photo" src="assets/photo-sport.webp" width="144" height="144" alt="Une personne laçant ses chaussures avant une activité sportive" loading="lazy">
+          </div>
           <p>
             Le projet : proposer périodiquement des temps collectifs structurés pour les enfants, adolescents et adultes avec TND ou handicap, dans un cadre contenant, lisible et bienveillant.
           </p>
@@ -1023,17 +1064,17 @@
       </div>
       <div class="publics-grid">
         <div class="public-card pc-bleu">
-          <div class="public-icon">🧒</div>
+          <img class="public-photo" src="assets/photo-enfants.webp" width="144" height="144" alt="Un grand-père et une enfant jouant ensemble avec des perles colorées" loading="lazy">
           <div class="public-title">Enfants &amp; adolescents TND</div>
           <div class="public-desc">Autisme, TDAH, DI et autres troubles du neurodéveloppement. Accompagnement dès le diagnostic.</div>
         </div>
         <div class="public-card pc-violet">
-          <div class="public-icon">🧑</div>
+          <img class="public-photo" src="assets/photo-adultes.webp" width="144" height="144" alt="Deux personnes adultes en séance d'activité physique adaptée" loading="lazy">
           <div class="public-title">Adultes en situation de handicap ou de grand âge</div>
           <div class="public-desc">Soutien à l'autonomie, à la vie sociale et à l'insertion, y compris pour les personnes présentant une pathologie neurodégénérative.</div>
         </div>
         <div class="public-card pc-orange">
-          <div class="public-icon">👨‍👩‍👧</div>
+          <img class="public-photo" src="assets/photo-familles.webp" width="144" height="144" alt="Deux mains tenant une famille découpée dans du papier" loading="lazy">
           <div class="public-title">Familles &amp; aidants</div>
           <div class="public-desc">Parents, proches aidants, professionnels — parce qu'accompagner demande aussi d'être soutenu.</div>
         </div>
