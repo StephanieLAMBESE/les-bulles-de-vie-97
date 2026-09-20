@@ -17,11 +17,36 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": ["NGO", "LocalBusiness"],
       "name": "Les Bulles de Vie 97",
+      "alternateName": "LBV97",
+      "description": "Association guadeloupéenne d'accompagnement des personnes avec troubles du neurodéveloppement, handicap ou pathologie neurodégénérative, et de soutien à leurs proches aidants.",
       "url": "https://main--lbv97.netlify.app/",
       "email": "lesbullesdevie97@gmail.com",
-      "areaServed": "Guadeloupe"
+      "telephone": "+590690909820",
+      "foundingDate": "2026",
+      "legalName": "Les Bulles de Vie 97",
+      "identifier": [
+        { "@type": "PropertyValue", "name": "RNA", "value": "W9G1012231" },
+        { "@type": "PropertyValue", "name": "SIRET", "value": "10590802400018" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "801 Résidence la Cotonnade, Beausoleil",
+        "postalCode": "97122",
+        "addressLocality": "Baie-Mahault",
+        "addressRegion": "Guadeloupe",
+        "addressCountry": "GP"
+      },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Guadeloupe" },
+      "knowsLanguage": "fr",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Information et pré-inscription",
+        "telephone": "+590690909820",
+        "email": "lesbullesdevie97@gmail.com",
+        "availableLanguage": "fr"
+      }
     }
   </script>
 
@@ -669,8 +694,8 @@
     .contact-inner .section-title em { color: rgba(255,255,255,0.85); }
     .contact-subtitle { font-size: 1rem; line-height: 1.8; opacity: 0.85; max-width: 560px; margin: 0 auto 2.5rem; }
     .contact-voies {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem; max-width: 720px; margin: 0 auto 2rem;
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem; max-width: 900px; margin: 0 auto 2rem;
       text-align: left;
     }
     .voie {
@@ -1135,6 +1160,11 @@
       <p class="contact-subtitle">Une question, une situation à exposer, ou l'envie d'être informé(e) des premiers créneaux ? Écrivez-nous, ou remplissez le formulaire de pré-inscription.</p>
 
       <div class="contact-voies">
+        <a class="voie" href="tel:+590690909820">
+          <span class="voie-label">Nous appeler</span>
+          <span class="voie-valeur">06 90 90 98 20</span>
+          <span class="voie-note">Le plus direct, si vous préférez la voix.</span>
+        </a>
         <a class="voie" href="mailto:lesbullesdevie97@gmail.com">
           <span class="voie-label">Nous écrire</span>
           <span class="voie-valeur">lesbullesdevie97@gmail.com</span>
@@ -1155,8 +1185,15 @@
 
   <!-- ======== FOOTER ======== -->
   <footer>
-    <span>© <span id="current-year">2026</span> Les Bulles de Vie 97</span>
-    <span><a href="mailto:lesbullesdevie97@gmail.com">lesbullesdevie97@gmail.com</a></span>
+    <span>© <span id="current-year">2026</span> Les Bulles de Vie 97 — Association Loi 1901</span>
+    <span>
+      <a href="tel:+590690909820">06 90 90 98 20</a> ·
+      <a href="mailto:lesbullesdevie97@gmail.com">lesbullesdevie97@gmail.com</a>
+    </span>
+    <span>
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+    </span>
     <span class="footer-tagline">Écouter · Accompagner · Créer du lien</span>
   </footer>
 
