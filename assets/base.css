@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Socle commun aux pages du site — Les Bulles de Vie 97
+
+   Ce fichier contient uniquement ce que toutes les pages partagent :
+   la palette, la typographie, le lavis aquarellé du dépliant en fond,
+   et les règles d'accessibilité. Chaque page garde ses styles propres.
+   ========================================================================== */
+
+:root {
+  /* Palette reprise du dépliant : bleu, turquoise, jaune, rose */
+  --bleu:       #276E9F;
+  --bleu-clair: #6DB8E8;
+  --bleu-pale:  #E8F4FC;
+  --violet:     #7A4E95;
+  --violet-pale:#F0E8F8;
+  --vert:       #247A45;
+  --vert-pale:  #E6F7EC;
+  --orange:     #F4A234;
+  --orange-pale:#FEF3E2;
+  --rouge:      #E05A5A;
+  --creme:      #FDFBF8;
+  --blanc:      #FFFFFF;
+  --texte:      #2C2C3E;
+  --gris:       #676777;
+  --gris-clair: #F0EFF7;
+  --jaune:      #A5640C;
+
+  /* Système de cartes : rayon commun, deux idiomes d'élévation */
+  --radius-card: 20px;
+  --shadow-tinted-hover:   0 16px 40px rgba(0,0,0,0.09);
+  --shadow-elevated-rest:  0 4px 20px rgba(0,0,0,0.06);
+  --shadow-elevated-hover: 0 12px 34px rgba(0,0,0,0.1);
+
+  /* Aucune police distante n'est chargée : ces piles doivent tenir seules */
+  --police-titre: 'Playfair Display', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --police-texte: 'Nunito', 'Avenir Next', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--police-texte);
+  background: var(--creme);
+  color: var(--texte);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Le lavis du dépliant, en fond de page. Deux empreintes de l'aquarelle
+   d'origine, très diluées, qui dérivent lentement l'une par rapport à l'autre.
+   -------------------------------------------------------------------------- */
+.lavis-fond {
+  position: fixed; inset: 0; z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.lavis-fond span {
+  position: absolute;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  will-change: transform;
+}
+.lavis-fond .lf-haut {
+  top: -18vh; right: -22vw;
+  width: 86vw; height: 86vw;
+  max-width: 1000px; max-height: 1000px;
+  background-image: url('lavis-recto.webp');
+  opacity: 0.30;
+  animation: derive-a 68s ease-in-out infinite;
+}
+.lavis-fond .lf-bas {
+  bottom: -26vh; left: -24vw;
+  width: 92vw; height: 92vw;
+  max-width: 1060px; max-height: 1060px;
+  background-image: url('lavis-verso.webp');
+  opacity: 0.24;
+  animation: derive-b 86s ease-in-out infinite;
+}
+@keyframes derive-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(-2.2%, 2.6%, 0) scale(1.05); }
+}
+@keyframes derive-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.04); }
+  50%      { transform: translate3d(2.8%, -2%, 0) scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibilité
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute; left: 1rem; top: 1rem; z-index: 300;
+  background: var(--bleu); color: var(--blanc);
+  font-weight: 700; font-size: 0.85rem;
+  padding: 0.7rem 1.2rem; border-radius: 0 0 12px 12px;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 0.2s;
+}
+.skip-link:focus { transform: translateY(0); }
+
+section[id] { scroll-margin-top: 6.5rem; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--jaune);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Pied de page
+   -------------------------------------------------------------------------- */
+footer {
+  background: var(--texte); color: rgba(255,255,255,0.55);
+  font-size: 0.8rem;
+}
+footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+footer a:hover { color: var(--blanc); }
+
+/* --------------------------------------------------------------------------
+   Mouvement réduit : le lavis reste affiché, mais il cesse de dériver.
+   Chaque page complète cette règle pour ses propres animations.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+  .lavis-fond span {
+    animation: none !important;
+    transform: none !important;
+  }
+}

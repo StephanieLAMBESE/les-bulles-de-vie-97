@@ -2,5 +2,8 @@
 docs/local/
 docs/private/
 
+# Fichier de démonstration autonome, régénérable avec outils-demo.py
+les-bulles-de-vie-97-demo.html
+
 # Fichiers du système
 .DS_Store
