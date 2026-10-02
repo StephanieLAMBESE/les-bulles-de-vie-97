@@ -1,0 +1,278 @@
+/* Proposition visuelle locale : le lavis et les images du dépliant restent la signature. */
+
+.lavis-fond { display: none; }
+
+nav {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: none;
+  border-bottom-color: rgba(39, 110, 159, 0.17);
+  backdrop-filter: none;
+}
+
+.nav-logo-bubble { box-shadow: none; border: 0; }
+.nav-logo-text span { color: var(--bleu); font-style: normal; }
+.nav-links a { font-size: 0.85rem; letter-spacing: 0; text-transform: none; }
+.nav-links .nav-cta {
+  border-radius: 16px !important;
+  letter-spacing: 0 !important;
+  font-size: 0.85rem !important;
+}
+
+.hero {
+  min-height: min(850px, 100svh);
+  background: #fff;
+}
+.hero-bg { background: #fff; }
+.hero-bg::before {
+  top: 0;
+  right: -9%;
+  width: min(61vw, 780px);
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  opacity: 0.48;
+  background-position: center right;
+  animation: none;
+  will-change: auto;
+}
+.hero-bg::after { display: none; }
+.hero-layout { gap: clamp(2rem, 5vw, 5rem); }
+.hero-inner { max-width: 650px; }
+.hero-eyebrow {
+  margin-bottom: 1.3rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.eyebrow-dot { width: 8px; height: 8px; }
+.hero-title {
+  max-width: 670px;
+  font-family: var(--police-titre);
+  font-size: clamp(3rem, 4.7vw, 4.7rem);
+  line-height: 1.1;
+  margin-bottom: 1.7rem;
+}
+.hero-title em,
+.hero-title .accent { color: inherit; font-style: normal; }
+.hero-subtitle {
+  max-width: 600px;
+  color: #464d59;
+  font-size: 1.05rem;
+  line-height: 1.72;
+  margin-bottom: 1.5rem;
+}
+.hero-tagline { max-width: 600px; }
+.hero-logo-card {
+  width: min(380px, 34vw);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  transform: none;
+}
+.hero-logo-card img { border-radius: 50%; }
+.micro-proof { color: #464d59; }
+
+.btn {
+  border-radius: 16px;
+  padding: 0.86rem 1.3rem;
+  font-family: var(--police-texte);
+  font-size: 0.94rem;
+}
+.btn-secondary { background: rgba(255, 255, 255, 0.78); }
+
+section { padding-top: 5.8rem; padding-bottom: 5.8rem; }
+.section-tag {
+  margin-bottom: 0.9rem;
+  font-size: 0.88rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.section-title { max-width: 760px; }
+.section-title em { color: var(--bleu); font-style: normal; }
+.contact-inner .section-title em { color: rgba(255, 255, 255, 0.85); }
+.section-intro { max-width: 720px; color: #4b5260; }
+
+#publics { background: #f7fbfd; }
+.publics-grid { gap: 1rem; }
+.public-card {
+  padding: 1.7rem 1.35rem;
+  border: 1px solid rgba(39, 110, 159, 0.1);
+  border-radius: 20px;
+}
+.public-card:hover { transform: none; box-shadow: none; }
+.public-photo {
+  width: 96px;
+  height: 96px;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.8);
+}
+.public-title { font-size: 1.25rem; line-height: 1.3; }
+.public-desc { font-size: 0.98rem; line-height: 1.7; color: #4b5260; }
+
+#missions { background: #fff; backdrop-filter: none; }
+.missions-photo { box-shadow: none; }
+.piliers {
+  padding: 1.6rem 0;
+  border: 0;
+  border-top: 1px solid #d5e2e9;
+  border-bottom: 1px solid #d5e2e9;
+  border-radius: 0;
+  background: none;
+}
+.pilier span { font-size: 0.91rem; color: #4b5260; }
+.missions-domains-title {
+  font-family: var(--police-titre);
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--texte);
+}
+.valeurs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; margin-top: 0.65rem; }
+.valeur-card {
+  padding: 1.35rem 0;
+  border-radius: 0;
+  border-bottom: 1px solid #dce4e9;
+  background: none;
+}
+.valeur-card::before { display: none; }
+.valeur-card:hover { transform: none; box-shadow: none; }
+.valeur-title { font-size: 1.14rem; margin-bottom: 0.4rem; }
+.valeur-text { font-size: 0.96rem; color: #4b5260; }
+
+#services { background: #eef7fb; backdrop-filter: none; }
+.services-header { text-align: left; margin-bottom: 2.4rem; }
+.services-header .section-intro { margin: 0; }
+.lancement-banner {
+  padding: 1.2rem 1.4rem;
+  border-radius: 10px;
+  background: #dceef8;
+  color: var(--texte);
+  box-shadow: none;
+}
+.lancement-text span { opacity: 1; }
+.lancement-btn {
+  border: 1px solid var(--bleu);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--bleu);
+}
+.lancement-btn:hover { transform: none; background: #f5fbff; }
+.services-grid { gap: 0 2.2rem; }
+.service-card {
+  padding: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #c9dae5;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.service-card:hover { transform: none; box-shadow: none; }
+.service-title { font-size: 1.17rem; margin-bottom: 0.45rem; }
+.service-desc { font-size: 0.96rem; color: #4b5260; }
+
+#club-loisirs { background: #fff; backdrop-filter: none; }
+.club-grid { align-items: start; }
+.club-panel {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.club-photo { box-shadow: none; }
+.club-panel p { color: #4b5260; }
+.club-list { gap: 0; border-top: 1px solid #dce4e9; }
+.club-list li {
+  padding: 0.9rem 0 0.9rem 1.5rem;
+  border-bottom: 1px solid #dce4e9;
+  border-radius: 0;
+  background: none;
+  font-weight: 600;
+}
+.club-list li::before { left: 0.2rem; top: 1.45rem; }
+.club-cards { gap: 0 1.5rem; }
+.club-card {
+  padding: 1.2rem 0;
+  border: 0;
+  border-top: 1px solid #dce4e9;
+  border-radius: 0;
+  background: none;
+}
+.club-card:hover { transform: none; box-shadow: none; }
+.club-card-title { font-size: 1.1rem; }
+.club-card-text { font-size: 0.95rem; color: #4b5260; }
+.conversion-strip {
+  border-radius: 12px;
+  background: var(--texte);
+  color: var(--blanc);
+}
+.conversion-item span { opacity: 0.85; color: inherit; }
+
+#preinscription { background: #f7fbfd; backdrop-filter: none; }
+.form-card {
+  border: 1px solid #d5e2e9;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+#contact { background: linear-gradient(125deg, #286c98 0%, #345d89 60%, #554c78 100%); }
+.contact-inner { text-align: left; }
+.contact-inner .section-tag { color: #fff; }
+.contact-subtitle { margin-left: 0; margin-right: 0; }
+.contact-voies { max-width: none; margin-left: 0; margin-right: 0; }
+.voie { border-radius: 10px; }
+.voie:hover { transform: none; }
+.voie-label { font-size: 0.85rem; letter-spacing: 0; text-transform: none; }
+.contact-actions { justify-content: flex-start; }
+.btn-white { border-radius: 16px; box-shadow: none; }
+.btn-white:hover { transform: none; box-shadow: none; }
+
+@media (max-width: 768px) {
+  .hero { min-height: auto; padding-top: 5.7rem; }
+  .hero-bg::before {
+    top: -5%; right: -25%;
+    width: 90vw; height: 55vh;
+    opacity: 0.36;
+  }
+  .hero-layout { gap: 0.8rem; }
+  .hero-visual { order: -1; justify-content: flex-start; }
+  .hero-logo-card { width: min(105px, 27vw); }
+  .hero-eyebrow { margin-bottom: 0.5rem; }
+  .hero-title { font-size: clamp(2.4rem, 9vw, 3.6rem); margin-bottom: 0.7rem; }
+  .hero-subtitle { margin-bottom: 0.85rem; }
+  .hero-tagline { flex-direction: column; align-items: flex-start; gap: 0.25rem; margin-bottom: 0.85rem; }
+  .tag-pill { padding: 0; border-radius: 0; background: none; letter-spacing: 0; }
+  .valeurs-grid { grid-template-columns: 1fr; }
+  .public-card { padding: 1.4rem 1rem; }
+  .nav-links {
+    align-items: stretch;
+    gap: 0;
+    padding: 1.2rem 1.5rem 2rem;
+    background: #fff;
+  }
+  .nav-links li:not(:last-child) { border-bottom: 1px solid #dce4e9; }
+  .nav-links a { display: block; padding: 0.95rem 0; font-size: 1rem; }
+  .nav-links .nav-cta {
+    display: block;
+    width: fit-content;
+    margin-top: 1.2rem;
+    padding: 0.8rem 1.2rem !important;
+  }
+  section { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+@media (max-width: 560px) {
+  .public-card {
+    display: grid;
+    grid-template-columns: 74px minmax(0, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.7rem;
+    align-items: center;
+    text-align: left;
+  }
+  .public-photo { grid-row: 1; width: 74px; height: 74px; margin: 0; }
+  .public-title { grid-column: 2; }
+  .public-desc { grid-column: 1 / -1; }
+  .form-card { padding: 1.6rem; }
+}

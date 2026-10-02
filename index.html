@@ -2,15 +2,15 @@
 <html lang="fr"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Les Bulles de Vie 97 — Accompagnement TND &amp; Club de loisirs | Guadeloupe</title>
-  <meta name="description" content="Association guadeloupéenne dédiée aux personnes avec TND ou handicap, au soutien des familles et aux activités adaptées hors domicile. Pré-inscription SAP et club de loisirs.">
+  <title>Les Bulles de Vie 97 — Accompagnement adapté en Guadeloupe</title>
+  <meta name="description" content="Les Bulles de Vie 97 prépare des services à domicile et un club de loisirs adaptés pour les personnes avec TND ou handicap en Guadeloupe. Ouverture des services à domicile prévue en janvier 2027.">
   <meta name="keywords" content="services à la personne Guadeloupe, TND Guadeloupe, autisme Guadeloupe, accompagnement handicap, SAP Guadeloupe, Les Bulles de Vie 97">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#3B8CC7">
   <link rel="canonical" href="https://main--lbv97.netlify.app/">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <meta property="og:title" content="Les Bulles de Vie 97 — Écouter · Accompagner · Créer du lien">
-  <meta property="og:description" content="Association d'accompagnement, de soutien aux aidants et d'activités adaptées en Guadeloupe.">
+  <meta property="og:description" content="Une association guadeloupéenne qui prépare des services à domicile, un soutien aux aidants et un club de loisirs adaptés.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://main--lbv97.netlify.app/">
   <meta property="og:locale" content="fr_GP">
@@ -20,7 +20,7 @@
       "@type": ["NGO", "LocalBusiness"],
       "name": "Les Bulles de Vie 97",
       "alternateName": "LBV97",
-      "description": "Association guadeloupéenne d'accompagnement des personnes avec troubles du neurodéveloppement, handicap ou pathologie neurodégénérative, et de soutien à leurs proches aidants.",
+      "description": "Association guadeloupéenne qui prépare des services à domicile et des activités adaptées pour les personnes avec troubles du neurodéveloppement, handicap ou pathologie neurodégénérative, ainsi qu'un soutien à leurs proches aidants.",
       "url": "https://main--lbv97.netlify.app/",
       "email": "lesbullesdevie97@gmail.com",
       "telephone": "+590690909820",
@@ -114,6 +114,7 @@
     }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--bleu); border-radius: 2px; transition: all 0.3s; }
     .hamburger:focus-visible { outline: 3px solid var(--jaune); outline-offset: 4px; border-radius: 4px; }
+    body.menu-open { position: fixed; left: 0; right: 0; width: 100%; overflow: hidden; }
 
     /* ======== HERO ======== */
     .hero {
@@ -225,7 +226,7 @@
     }
     .micro-proof {
       margin-top: 1rem;
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       color: var(--gris);
       opacity: 0; animation: fadeUp 0.7s ease 1s forwards;
     }
@@ -240,7 +241,7 @@
     .eyebrow-dot { width:6px;height:6px;border-radius:50%;background:var(--bleu); }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 5.5vw, 5rem);
+      font-size: clamp(2.8rem, 4.7vw, 4.4rem);
       font-weight: 600; line-height: 1.08;
       color: var(--texte); margin-bottom: 1.5rem;
       opacity: 0; animation: fadeUp 0.7s ease 0.4s forwards;
@@ -248,13 +249,13 @@
     .hero-title em { color: var(--bleu); font-style: italic; }
     .hero-title .accent { color: var(--violet); }
     .hero-subtitle {
-      font-size: 1.1rem; line-height: 1.75; color: var(--gris);
-      max-width: 520px; margin-bottom: 2.5rem;
+      font-size: 1rem; line-height: 1.7; color: var(--gris);
+      max-width: 520px; margin-bottom: 1.6rem;
       opacity: 0; animation: fadeUp 0.7s ease 0.6s forwards;
     }
     .hero-tagline {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      margin-bottom: 2.5rem;
+      display: flex; gap: 0.6rem; flex-wrap: wrap;
+      margin-bottom: 1.6rem;
       opacity: 0; animation: fadeUp 0.7s ease 0.7s forwards;
     }
     .tag-pill {
@@ -290,24 +291,6 @@
       border: 2px solid var(--bleu);
     }
     .btn-secondary:hover { background: var(--bleu); color: var(--blanc); }
-
-    .hero-badge {
-      position: absolute; right: 6%; bottom: 12%; z-index: 1;
-      background: var(--blanc);
-      border-radius: 20px;
-      padding: 1.2rem 1.6rem;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-      text-align: center;
-      opacity: 0; animation: fadeUp 0.7s ease 1.1s forwards;
-    }
-    .hero-badge-num {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem; font-weight: 600;
-      color: var(--bleu); line-height: 1;
-    }
-    .hero-badge-label { font-size: 0.72rem; font-weight: 700; color: var(--gris); letter-spacing: 0.1em; text-transform: uppercase; }
-    .hero-badge-sub { font-size: 0.68rem; color: var(--jaune); font-weight: 700; margin-top: 0.2rem; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
@@ -394,13 +377,12 @@
     .valeur-card.c-rouge::before { background: linear-gradient(90deg, var(--rouge), #F1948A); }
     .valeur-card.c-bleu2::before { background: linear-gradient(90deg, #5DADE2, var(--bleu)); }
     .valeur-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-tinted-hover); }
-    .valeur-icon { font-size: 2.2rem; margin-bottom: 1rem; }
     .valeur-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem; font-weight: 600;
       color: var(--texte); margin-bottom: 0.7rem;
     }
-    .valeur-text { font-size: 0.87rem; line-height: 1.7; color: var(--gris); }
+    .valeur-text { font-size: 0.92rem; line-height: 1.7; color: var(--gris); }
 
     /* ======== SERVICES SAP ======== */
     #services { background: linear-gradient(160deg, rgba(232,244,252,0.80) 0%, rgba(230,247,236,0.74) 100%); backdrop-filter: blur(3px); }
@@ -414,7 +396,6 @@
       margin-bottom: 3rem;
       box-shadow: 0 8px 30px rgba(59,140,199,0.3);
     }
-    .lancement-icon { font-size: 2rem; }
     .lancement-text { flex: 1; }
     .lancement-text strong { display: block; font-size: 1rem; font-weight: 800; margin-bottom: 0.2rem; }
     .lancement-text span { font-size: 0.87rem; opacity: 0.9; }
@@ -433,26 +414,19 @@
     }
     .service-card {
       background: var(--blanc); border-radius: var(--radius-card);
-      padding: 1.8rem; display: flex; gap: 1.2rem;
+      padding: 1.8rem; border-left: 4px solid var(--bleu-clair);
       box-shadow: var(--shadow-elevated-rest);
       transition: transform 0.25s, box-shadow 0.25s;
     }
+    .service-card:nth-child(2), .service-card:nth-child(5) { border-left-color: #B18AC8; }
+    .service-card:nth-child(3), .service-card:nth-child(6) { border-left-color: #76C89A; }
+    .service-card:nth-child(4) { border-left-color: #E9B662; }
     .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated-hover); }
-    .service-icon-wrap {
-      width: 52px; height: 52px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; flex-shrink: 0;
-    }
-    .si-bleu   { background: var(--bleu-pale); }
-    .si-violet { background: var(--violet-pale); }
-    .si-vert   { background: var(--vert-pale); }
-    .si-orange { background: var(--orange-pale); }
-    .service-body {}
     .service-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--texte); margin-bottom: 0.5rem; }
-    .service-desc { font-size: 0.83rem; line-height: 1.65; color: var(--gris); }
+    .service-desc { font-size: 0.92rem; line-height: 1.65; color: var(--gris); }
 
     /* ======== PUBLICS ======== */
-    #publics { background: rgba(255,255,255,0.78); backdrop-filter: blur(3px); }
+    #publics { background: linear-gradient(145deg, rgba(232,244,252,0.75), rgba(253,251,248,0.72)); backdrop-filter: blur(3px); }
     .publics-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem; margin-top: 2rem;
@@ -476,7 +450,7 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.10), 0 0 0 4px rgba(255,255,255,0.75);
     }
     .public-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--texte); margin-bottom: 0.5rem; }
-    .public-desc { font-size: 0.82rem; line-height: 1.6; color: var(--gris); }
+    .public-desc { font-size: 0.92rem; line-height: 1.65; color: var(--gris); }
 
 
     /* ======== CLUB DE LOISIRS ======== */
@@ -498,20 +472,27 @@
     .club-panel .club-entete + p { margin-top: 1.2rem; }
     .club-list { list-style: none; display: grid; gap: 0.75rem; margin: 1.5rem 0 0; }
     .club-list li {
-      display: flex; gap: 0.75rem; align-items: flex-start;
-      background: rgba(255,255,255,0.72); padding: 0.85rem 1rem; border-radius: 14px;
+      position: relative;
+      background: rgba(255,255,255,0.72); padding: 0.85rem 1rem 0.85rem 2.1rem; border-radius: 14px;
       font-size: 0.9rem; color: var(--texte); font-weight: 700;
+    }
+    .club-list li::before {
+      content: ''; position: absolute; left: 0.95rem; top: 1.2rem;
+      width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--bleu-clair);
     }
     .club-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .club-card {
       border-radius: var(--radius-card); padding: 1.4rem;
       background: var(--creme); border: 1px solid rgba(59,140,199,0.12);
+      border-top: 3px solid var(--bleu-clair);
       transition: transform 0.25s, box-shadow 0.25s;
     }
+    .club-card:nth-child(2) { border-top-color: #E9B662; }
+    .club-card:nth-child(3) { border-top-color: #B18AC8; }
+    .club-card:nth-child(4) { border-top-color: #76C89A; }
     .club-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-tinted-hover); }
-    .club-card-icon { font-size: 2rem; margin-bottom: 0.7rem; }
     .club-card-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--texte); margin-bottom: 0.45rem; }
-    .club-card-text { font-size: 0.84rem; line-height: 1.65; color: var(--gris); }
+    .club-card-text { font-size: 0.92rem; line-height: 1.65; color: var(--gris); }
     .club-cta { margin-top: 1.8rem; display: flex; gap: 1rem; flex-wrap: wrap; }
     .conversion-strip {
       margin-top: 3rem; background: var(--texte); color: var(--blanc); border-radius: 24px;
@@ -654,8 +635,7 @@
       .hero-title,
       .hero-subtitle,
       .hero-tagline,
-      .hero-actions,
-      .hero-badge {
+      .hero-actions {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
@@ -675,12 +655,18 @@
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0;
         background: var(--creme); flex-direction: column; padding: 1.5rem;
+        min-height: calc(100vh - 5rem); min-height: calc(100dvh - 5rem);
+        max-height: calc(100vh - 5rem); max-height: calc(100dvh - 5rem);
+        overflow-y: auto; overscroll-behavior: contain;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1); gap: 1rem; }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
       section { padding: 3.5rem 1.5rem; }
-      .hero { padding: 7rem 1.5rem 3rem; }
-      .hero-badge { display: none; }
+      .hero { padding: 6rem 1.5rem 3rem; }
+      .hero-eyebrow { font-size: 0.72rem; margin-bottom: 0.9rem; }
+      .hero-title { font-size: clamp(2.35rem, 10vw, 2.8rem); margin-bottom: 1rem; }
+      .hero-subtitle { line-height: 1.6; margin-bottom: 1.2rem; }
+      .hero-tagline { margin-bottom: 1.2rem; }
       .valeurs-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .publics-grid { grid-template-columns: repeat(2,1fr); }
@@ -691,21 +677,27 @@
       .missions-photo { order: -1; margin-bottom: 1.5rem; width: 120px; height: 120px; }
       .club-entete { flex-direction: column-reverse; align-items: flex-start; gap: 1.1rem; }
       .public-photo { width: 76px; height: 76px; }
-      .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-layout { grid-template-columns: 1fr; gap: 1.25rem; }
       .hero-visual { order: -1; }
-      .hero-logo-card { width: min(300px, 88vw); }
+      .hero-logo-card { width: min(190px, 50vw); padding: 0.7rem; border-radius: 22px; }
+      .hero-logo-card img { border-radius: 18px; }
       .club-grid { grid-template-columns: 1fr; }
       .club-cards { grid-template-columns: 1fr; }
       .conversion-strip { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
     }
 
+    @media (max-width: 560px) {
+      .publics-grid { grid-template-columns: 1fr; }
+    }
+
 
   </style>
+  <link rel="stylesheet" href="assets/visual-pass.css?v=13">
 </head>
 <body>
 
-  <a class="skip-link" href="#accueil">Aller au contenu</a>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <!-- Le lavis aquarellé du dépliant, repris tel quel en fond de page -->
   <div class="lavis-fond" aria-hidden="true">
@@ -716,14 +708,14 @@
   <!-- ======== NAV ======== -->
   <nav id="navbar">
     <a href="#accueil" class="nav-logo">
-      <div class="nav-logo-bubble"><img src="assets/logo-sans-texte.webp" width="320" height="320" alt="Logo Les Bulles de Vie 97"></div>
+      <div class="nav-logo-bubble"><img src="assets/logo-sans-texte.webp" width="320" height="320" alt=""></div>
       <div class="nav-logo-text">Les Bulles<br><span>de Vie 97</span></div>
     </a>
     <ul class="nav-links" id="navLinks" aria-label="Navigation principale">
+      <li><a href="#publics">Pour qui ?</a></li>
       <li><a href="#missions">Nos missions</a></li>
       <li><a href="#services">Accompagnement</a></li>
       <li><a href="#club-loisirs">Club loisirs</a></li>
-      <li><a href="#publics">Publics</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#preinscription" class="nav-cta">Pré-inscription</a></li>
     </ul>
@@ -732,28 +724,19 @@
     </button>
   </nav>
 
+  <main id="contenu" tabindex="-1">
+
   <!-- ======== HERO ======== -->
   <section class="hero" id="accueil">
     <div class="hero-bg"></div>
-    <div class="bubble-deco b1"></div>
-    <div class="bubble-deco b2"></div>
-    <div class="bubble-deco b3"></div>
-    <div class="bubble-deco b4"></div>
-    <div class="bubble-deco b5"></div>
-    <div class="bubble-deco b6"></div>
-
     <div class="hero-layout">
       <div class="hero-inner">
         <p class="hero-eyebrow"><span class="eyebrow-dot"></span> Association Loi 1901 — Créée en 2026 en Guadeloupe</p>
-        <h1 class="hero-title">
-          Votre nouveau<br>
-          <em>partenaire</em><br>
-          <span class="accent">du quotidien.</span>
-        </h1>
+        <h1 class="hero-title">Votre nouveau <em>partenaire</em> <span class="accent">du quotidien.</span></h1>
         <p class="hero-subtitle">
-          Un service à la personne adapté à chaque parcours TND. Les Bulles de Vie 97 accompagne les enfants, adolescents et adultes avec troubles du neurodéveloppement, handicap ou pathologie neurodégénérative, et soutient leurs proches aidants.
+          Un service à la personne adapté à chaque parcours TND. Les Bulles de Vie 97 se prépare à accompagner les enfants, adolescents et adultes avec troubles du neurodéveloppement, handicap ou pathologie neurodégénérative, et à soutenir leurs proches aidants.
         </p>
-        <div class="hero-tagline">
+        <div class="hero-tagline" aria-label="Les activités de l'association">
           <span class="tag-pill tag-bleu">Accompagnement à domicile</span>
           <span class="tag-pill tag-violet">TND, handicap &amp; grand âge</span>
           <span class="tag-pill tag-vert">Club de loisirs adaptés</span>
@@ -769,10 +752,33 @@
       </div>
     </div>
 
-    <div class="hero-badge">
-      <span class="hero-badge-num">2026</span>
-      <span class="hero-badge-label">Association créée</span>
-      <span class="hero-badge-sub">Pré-inscription sans engagement</span>
+  </section>
+
+  <!-- ======== PUBLICS ======== -->
+  <section id="publics">
+    <div class="section-inner">
+      <div>
+        <p class="section-tag"><svg class="grappe" width="20" height="13" viewBox="0 0 20 13" aria-hidden="true"><circle cx="5.4" cy="6.5" r="4.8" fill="#6DB8E8" opacity=".55"/><circle cx="11.8" cy="5" r="3.6" fill="#EFA0BA" opacity=".6"/><circle cx="16.2" cy="8.8" r="2.7" fill="#F5CE70" opacity=".65"/></svg> Qui est concerné ?</p>
+        <h2 class="section-title">Nos <em>publics</em></h2>
+        <p class="section-intro">Adultes et enfants de tous âges, familles et proches aidants. Les troubles du neurodéveloppement touchent directement ou indirectement de nombreuses familles et nécessitent des réponses individualisées, respectueuses des besoins, des capacités et du rythme de chaque personne.</p>
+      </div>
+      <div class="publics-grid">
+        <div class="public-card pc-bleu">
+          <img class="public-photo" src="assets/photo-enfants.webp" width="144" height="144" alt="Un grand-père et une enfant jouant ensemble avec des perles colorées" loading="lazy">
+          <h3 class="public-title">Enfants &amp; adolescents TND</h3>
+          <div class="public-desc">Autisme, TDAH, DI et autres troubles du neurodéveloppement. Un projet d'accompagnement adapté dès le diagnostic.</div>
+        </div>
+        <div class="public-card pc-violet">
+          <img class="public-photo" src="assets/photo-adultes.webp" width="144" height="144" alt="Deux personnes adultes en séance d'activité physique adaptée" loading="lazy">
+          <h3 class="public-title">Adultes en situation de handicap ou de grand âge</h3>
+          <div class="public-desc">Soutien à l'autonomie, à la vie sociale et à l'insertion, y compris pour les personnes présentant une pathologie neurodégénérative.</div>
+        </div>
+        <div class="public-card pc-orange">
+          <img class="public-photo" src="assets/photo-familles.webp" width="144" height="144" alt="Deux mains tenant une famille découpée dans du papier" loading="lazy">
+          <h3 class="public-title">Familles &amp; aidants</h3>
+          <div class="public-desc">Parents, proches aidants, professionnels — parce qu'accompagner demande aussi d'être soutenu.</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -787,7 +793,7 @@
           L'association Les Bulles de Vie 97 est née d'un constat partagé par de nombreuses familles, aidants et professionnels. Face à une offre spécialisée encore insuffisamment développée, notamment pour les personnes présentant des troubles sévères ou des profils complexes, de nombreuses familles peinent à trouver des solutions répondant réellement à leur quotidien.
         </p>
         <p class="section-intro">
-          Notre mission est d'améliorer la qualité de vie des personnes présentant des troubles du neurodéveloppement ou des pathologies neurodégénératives, ainsi que celle de leurs proches aidants. Nous développons pour cela des solutions concrètes, accessibles et adaptées, qui favorisent l'épanouissement, l'autonomie et la participation de chacun à la vie de la cité.
+          Notre mission est d'améliorer la qualité de vie des personnes présentant des troubles du neurodéveloppement ou des pathologies neurodégénératives, ainsi que celle de leurs proches aidants. Nous préparons pour cela des solutions concrètes, accessibles et adaptées, qui favorisent l'épanouissement, l'autonomie et la participation de chacun à la vie de la cité.
         </p>
         </div>
         <img class="missions-photo" src="assets/photo-missions.webp" width="144" height="144" alt="Deux mains tenant un cœur composé de pièces de puzzle colorées" loading="lazy">
@@ -824,35 +830,30 @@
           </div>
         </li>
       </ul>
+      <h3 class="missions-domains-title">Nos domaines d'action</h3>
       <div class="valeurs-grid">
         <div class="valeur-card c-bleu">
-          <div class="valeur-icon">🤝</div>
-          <div class="valeur-title">Services à la personne (SAP)</div>
+          <h4 class="valeur-title">Services à la personne (SAP)</h4>
           <div class="valeur-text">Accompagnement à domicile dans les actes de la vie quotidienne : repas, mobilité, routines, stimulation cognitive, communication et prévention des comportements-problèmes, selon le cadre SAP applicable.</div>
         </div>
         <div class="valeur-card c-violet">
-          <div class="valeur-icon">🧩</div>
-          <div class="valeur-title">Accompagnement éducatif TND</div>
+          <h4 class="valeur-title">Accompagnement éducatif TND</h4>
           <div class="valeur-text">Soutien éducatif à domicile pour les personnes présentant des besoins spécifiques : autisme, TDAH, DI et autres troubles du neurodéveloppement. Approche basée sur les données (ABA, CAA).</div>
         </div>
         <div class="valeur-card c-vert">
-          <div class="valeur-icon">🏃</div>
-          <div class="valeur-title">Activité physique adaptée (APA)</div>
+          <h4 class="valeur-title">Activité physique adaptée (APA)</h4>
           <div class="valeur-text">Activités sportives et motrices adaptées aux besoins de chacun, dans une logique de santé, d'autonomie, de plaisir corporel et de participation sociale.</div>
         </div>
         <div class="valeur-card c-orange">
-          <div class="valeur-icon">🎨</div>
-          <div class="valeur-title">Ateliers sensoriels &amp; loisirs</div>
+          <h4 class="valeur-title">Ateliers sensoriels &amp; loisirs</h4>
           <div class="valeur-text">Ateliers ludiques, sensoriels et éducatifs pour soutenir le développement des compétences motrices, cognitives, émotionnelles et communicationnelles des bénéficiaires.</div>
         </div>
         <div class="valeur-card c-rouge">
-          <div class="valeur-icon">💬</div>
-          <div class="valeur-title">Communication augmentative (CAA)</div>
+          <h4 class="valeur-title">Communication augmentative (CAA)</h4>
           <div class="valeur-text">Promotion et mise en œuvre d'outils de communication alternative et augmentative pour favoriser l'expression, la participation et l'inclusion de toutes les personnes.</div>
         </div>
         <div class="valeur-card c-bleu2">
-          <div class="valeur-icon">💪</div>
-          <div class="valeur-title">Soutien aux familles &amp; aidants</div>
+          <h4 class="valeur-title">Soutien aux familles &amp; aidants</h4>
           <div class="valeur-text">Temps de répit, pair-aidance, écoute, information et orientation. Parce qu'accompagner un proche est un engagement total qui nécessite d'être soi-même soutenu.</div>
         </div>
       </div>
@@ -865,58 +866,51 @@
       <div class="services-header">
         <p class="section-tag"><svg class="grappe" width="20" height="13" viewBox="0 0 20 13" aria-hidden="true"><circle cx="5.4" cy="6.5" r="4.8" fill="#6DB8E8" opacity=".55"/><circle cx="11.8" cy="5" r="3.6" fill="#EFA0BA" opacity=".6"/><circle cx="16.2" cy="8.8" r="2.7" fill="#F5CE70" opacity=".65"/></svg> Services à la personne</p>
         <h2 class="section-title">Ce que nous <em>proposons</em></h2>
-        <p class="section-intro">Une offre progressive : accompagnement à domicile, soutien des familles et activités adaptées hors domicile. Les services SAP seront structurés selon le cadre réglementaire applicable, en mode prestataire ou mandataire.</p>
+        <p class="section-intro">Une offre progressive : accompagnement à domicile, soutien des familles et activités adaptées hors domicile. Les modalités des services à la personne seront précisées avant leur ouverture.</p>
       </div>
 
       <div class="lancement-banner">
-        <div class="lancement-icon">🚀</div>
         <div class="lancement-text">
-          <strong>Lancement des services SAP — Janvier 2027</strong>
-          <span>Les pré-inscriptions sont ouvertes dès maintenant. Soyez parmi les premiers à bénéficier de nos services.</span>
+          <strong>Ouverture prévue des services SAP — Janvier 2027</strong>
+          <span>Les pré-inscriptions sont ouvertes pour nous aider à préparer une offre adaptée aux besoins exprimés.</span>
         </div>
         <a href="#preinscription" class="lancement-btn">Faire ma pré-inscription →</a>
       </div>
 
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon-wrap si-bleu">🏡</div>
           <div class="service-body">
-            <div class="service-title">Accompagnement dans la vie quotidienne</div>
+            <h3 class="service-title">Accompagnement dans la vie quotidienne</h3>
             <div class="service-desc">Soutien aux routines, aux repas, à la mobilité, aux tâches du quotidien, à la communication et à l'autonomie pour les personnes avec TND ou handicap.</div>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon-wrap si-violet">📚</div>
           <div class="service-body">
-            <div class="service-title">Accompagnement éducatif à domicile</div>
+            <h3 class="service-title">Accompagnement éducatif à domicile</h3>
             <div class="service-desc">Soutien éducatif spécialisé pour les personnes présentant des besoins éducatifs particuliers. Coordination avec les familles, aidants et structures médico-sociales.</div>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon-wrap si-vert">👶</div>
           <div class="service-body">
-            <div class="service-title">Garde à domicile</div>
+            <h3 class="service-title">Garde à domicile</h3>
             <div class="service-desc">Garde spécialisée pour les personnes en situation de handicap et/ou issues de la neurodiversité. Intervenants qualifiés, adaptés aux profils et aux besoins.</div>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon-wrap si-orange">👨‍👩‍👧</div>
           <div class="service-body">
-            <div class="service-title">Soutien à la parentalité</div>
+            <h3 class="service-title">Soutien à la parentalité</h3>
             <div class="service-desc">Accueil, écoute, information et orientation des familles. Guidance parentale et accompagnement dans les démarches administratives (NOVA, CESU…).</div>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon-wrap si-violet">🧭</div>
           <div class="service-body">
-            <div class="service-title">Coordination et orientation des parcours</div>
+            <h3 class="service-title">Coordination et orientation des parcours</h3>
             <div class="service-desc">Aide à clarifier les besoins, prioriser les démarches et articuler les interventions autour de la personne, avec la famille et les partenaires.</div>
           </div>
         </div>
         <div class="service-card">
-          <div class="service-icon-wrap si-vert">☀️</div>
           <div class="service-body">
-            <div class="service-title">Temps de répit &amp; club de loisirs</div>
+            <h3 class="service-title">Temps de répit &amp; club de loisirs</h3>
             <div class="service-desc">Organisation de temps collectifs adaptés : sport, loisirs manuels, sensoriels et culturels, pour soutenir la qualité de vie, la socialisation et le répit familial.</div>
           </div>
         </div>
@@ -944,9 +938,9 @@
             Les activités seront pensées pour favoriser la participation, la motivation, la communication, l'autonomie et le lien social — sans pression de performance.
           </p>
           <ul class="club-list">
-            <li>📅 Mercredi, samedi et périodes de vacances scolaires</li>
-            <li>🧩 Petits groupes, rythme adapté et repères visuels possibles</li>
-            <li>🤝 Temps de répit indirect pour les familles et les aidants</li>
+            <li>Créneaux envisagés le mercredi, le samedi et pendant les vacances scolaires</li>
+            <li>Petits groupes, rythme adapté et repères visuels possibles</li>
+            <li>Temps de répit indirect pour les familles et les aidants</li>
           </ul>
           <div class="club-cta">
             <a href="#preinscription" class="btn btn-primary">Faire ma pré-inscription</a>
@@ -955,23 +949,19 @@
         </div>
         <div class="club-cards">
           <div class="club-card">
-            <div class="club-card-icon">🏃</div>
-            <div class="club-card-title">Sport adapté</div>
+            <h3 class="club-card-title">Sport adapté</h3>
             <div class="club-card-text">Parcours moteurs, jeux corporels, coordination, équilibre, engagement progressif et alternatives si l'activité bloque.</div>
           </div>
           <div class="club-card">
-            <div class="club-card-icon">🎨</div>
-            <div class="club-card-title">Loisirs manuels</div>
+            <h3 class="club-card-title">Loisirs manuels</h3>
             <div class="club-card-text">Créations simples, manipulations, bricolages guidés, activités concrètes et valorisantes.</div>
           </div>
           <div class="club-card">
-            <div class="club-card-icon">🫧</div>
-            <div class="club-card-title">Sensoriel</div>
+            <h3 class="club-card-title">Sensoriel</h3>
             <div class="club-card-text">Explorations douces, régulation, expériences tactiles, visuelles ou sonores adaptées aux profils sensoriels.</div>
           </div>
           <div class="club-card">
-            <div class="club-card-icon">🎭</div>
-            <div class="club-card-title">Culturel</div>
+            <h3 class="club-card-title">Culturel</h3>
             <div class="club-card-text">Sorties, découvertes, médiations culturelles et temps collectifs pour ouvrir l'accès à la cité.</div>
           </div>
         </div>
@@ -979,35 +969,7 @@
       <div class="conversion-strip">
         <div class="conversion-item"><strong>1. Vous signalez votre besoin</strong><span>Âge, profil, attentes, disponibilités et points de vigilance.</span></div>
         <div class="conversion-item"><strong>2. Nous qualifions la demande</strong><span>Objectif : proposer un format réaliste, sécurisé et utile.</span></div>
-        <div class="conversion-item"><strong>3. Vous recevez les créneaux</strong><span>Vous êtes informé en priorité dès l'ouverture des inscriptions.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== PUBLICS ======== -->
-  <section id="publics">
-    <div class="section-inner">
-      <div>
-        <p class="section-tag"><svg class="grappe" width="20" height="13" viewBox="0 0 20 13" aria-hidden="true"><circle cx="5.4" cy="6.5" r="4.8" fill="#6DB8E8" opacity=".55"/><circle cx="11.8" cy="5" r="3.6" fill="#EFA0BA" opacity=".6"/><circle cx="16.2" cy="8.8" r="2.7" fill="#F5CE70" opacity=".65"/></svg> À qui s'adresse-t-on ?</p>
-        <h2 class="section-title">Nos <em>publics</em></h2>
-        <p class="section-intro">Adultes et enfants de tous âges. Les troubles du neurodéveloppement touchent directement ou indirectement de nombreuses familles et nécessitent des réponses individualisées, respectueuses des besoins, des capacités et du rythme de chaque personne.</p>
-      </div>
-      <div class="publics-grid">
-        <div class="public-card pc-bleu">
-          <img class="public-photo" src="assets/photo-enfants.webp" width="144" height="144" alt="Un grand-père et une enfant jouant ensemble avec des perles colorées" loading="lazy">
-          <div class="public-title">Enfants &amp; adolescents TND</div>
-          <div class="public-desc">Autisme, TDAH, DI et autres troubles du neurodéveloppement. Accompagnement dès le diagnostic.</div>
-        </div>
-        <div class="public-card pc-violet">
-          <img class="public-photo" src="assets/photo-adultes.webp" width="144" height="144" alt="Deux personnes adultes en séance d'activité physique adaptée" loading="lazy">
-          <div class="public-title">Adultes en situation de handicap ou de grand âge</div>
-          <div class="public-desc">Soutien à l'autonomie, à la vie sociale et à l'insertion, y compris pour les personnes présentant une pathologie neurodégénérative.</div>
-        </div>
-        <div class="public-card pc-orange">
-          <img class="public-photo" src="assets/photo-familles.webp" width="144" height="144" alt="Deux mains tenant une famille découpée dans du papier" loading="lazy">
-          <div class="public-title">Familles &amp; aidants</div>
-          <div class="public-desc">Parents, proches aidants, professionnels — parce qu'accompagner demande aussi d'être soutenu.</div>
-        </div>
+        <div class="conversion-item"><strong>3. Nous vous informons de l'ouverture</strong><span>Nous transmettons les modalités et les créneaux lorsqu'ils sont confirmés.</span></div>
       </div>
     </div>
   </section>
@@ -1017,14 +979,14 @@
     <div class="section-inner">
       <div class="preinscription-grid">
         <div class="preinscription-info">
-          <p class="section-tag"><svg class="grappe" width="20" height="13" viewBox="0 0 20 13" aria-hidden="true"><circle cx="5.4" cy="6.5" r="4.8" fill="#6DB8E8" opacity=".55"/><circle cx="11.8" cy="5" r="3.6" fill="#EFA0BA" opacity=".6"/><circle cx="16.2" cy="8.8" r="2.7" fill="#F5CE70" opacity=".65"/></svg> Lancement SAP — Janvier 2027</p>
+          <p class="section-tag"><svg class="grappe" width="20" height="13" viewBox="0 0 20 13" aria-hidden="true"><circle cx="5.4" cy="6.5" r="4.8" fill="#6DB8E8" opacity=".55"/><circle cx="11.8" cy="5" r="3.6" fill="#EFA0BA" opacity=".6"/><circle cx="16.2" cy="8.8" r="2.7" fill="#F5CE70" opacity=".65"/></svg> Ouverture prévue des services SAP — Janvier 2027</p>
           <h2 class="section-title">Pré-inscription<br><em>gratuite</em></h2>
-          <p>Nos services SAP seront opérationnels en janvier 2027. En vous pré-inscrivant dès aujourd'hui, vous garantissez votre place parmi les premiers bénéficiaires et restez informé(e) de l'avancement du projet.</p>
-          <p>La pré-inscription est sans engagement. Elle nous permet simplement d'évaluer les besoins et d'adapter nos ressources à la demande.</p>
+          <p>L'ouverture des services SAP est prévue en janvier 2027. Une pré-inscription nous aide à connaître les besoins et à préparer les accompagnements ; elle ne garantit pas une place.</p>
+          <p>La démarche est gratuite et sans engagement. Nous pourrons vous informer lorsque les modalités et les premiers créneaux seront connus.</p>
           <ul class="preinscription-avantages">
-            <li><span class="avantage-dot"></span> Priorité d'accès au lancement</li>
-            <li><span class="avantage-dot"></span> Information en avant-première</li>
-            <li><span class="avantage-dot"></span> Évaluation personnalisée des besoins</li>
+            <li><span class="avantage-dot"></span> Besoins pris en compte pour préparer l'offre</li>
+            <li><span class="avantage-dot"></span> Information à l'ouverture des services</li>
+            <li><span class="avantage-dot"></span> Premier échange sur votre situation</li>
             <li><span class="avantage-dot"></span> Sans engagement de votre part</li>
             <li><span class="avantage-dot"></span> Nous revenons vers vous dès que possible</li>
           </ul>
@@ -1087,6 +1049,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ======== FOOTER ======== -->
   <footer>
     <span>© <span id="current-year">2026</span> Les Bulles de Vie 97 — Association Loi 1901</span>
@@ -1103,29 +1067,46 @@
 
   <script>
     const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('navLinks');
+    let menuScrollY = 0;
 
-    function toggleMenu() {
-      const menu = document.getElementById('navLinks');
-      const isOpen = menu.classList.toggle('open');
+    function setMenuOpen(isOpen) {
+      if (menu.classList.contains('open') === isOpen) return;
+
+      if (isOpen) {
+        menuScrollY = window.scrollY;
+        document.body.style.top = `-${menuScrollY}px`;
+        document.body.classList.add('menu-open');
+        menu.classList.add('open');
+      } else {
+        menu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        document.body.style.top = '';
+        const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, menuScrollY);
+        document.documentElement.style.scrollBehavior = previousScrollBehavior;
+      }
+
       hamburger.setAttribute('aria-expanded', String(isOpen));
       hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
     }
 
-    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('click', () => setMenuOpen(!menu.classList.contains('open')));
 
     document.querySelectorAll('.nav-links a').forEach((link) => {
-      link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', 'Ouvrir le menu');
-      });
+      link.addEventListener('click', () => setMenuOpen(false));
     });
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && document.getElementById('navLinks').classList.contains('open')) {
-        toggleMenu();
+      if (event.key === 'Escape' && menu.classList.contains('open')) {
+        setMenuOpen(false);
         hamburger.focus();
       }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
     });
 
     document.getElementById('current-year').textContent = new Date().getFullYear();
