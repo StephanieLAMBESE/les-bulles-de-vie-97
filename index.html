@@ -651,7 +651,7 @@
     }
 
     /* ======== MOBILE ======== */
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0;
         background: var(--creme); flex-direction: column; padding: 1.5rem;
@@ -661,6 +661,8 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.1); gap: 1rem; }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
+    }
+    @media (max-width: 768px) {
       section { padding: 3.5rem 1.5rem; }
       .hero { padding: 6rem 1.5rem 3rem; }
       .hero-eyebrow { font-size: 0.72rem; margin-bottom: 0.9rem; }
@@ -693,7 +695,7 @@
 
 
   </style>
-  <link rel="stylesheet" href="assets/visual-pass.css?v=13">
+  <link rel="stylesheet" href="assets/visual-pass.css?v=15">
 </head>
 <body>
 
@@ -712,11 +714,11 @@
       <div class="nav-logo-text">Les Bulles<br><span>de Vie 97</span></div>
     </a>
     <ul class="nav-links" id="navLinks" aria-label="Navigation principale">
-      <li><a href="#publics">Pour qui ?</a></li>
-      <li><a href="#missions">Nos missions</a></li>
-      <li><a href="#services">Accompagnement</a></li>
-      <li><a href="#club-loisirs">Club loisirs</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#publics">Nos publics</a></li>
+      <li><a href="#missions">Missions &amp; valeurs</a></li>
+      <li><a href="#services">Nos services</a></li>
+      <li><a href="#club-loisirs">Club de loisirs</a></li>
+      <li><a href="#contact">Nous contacter</a></li>
       <li><a href="#preinscription" class="nav-cta">Pré-inscription</a></li>
     </ul>
     <button class="hamburger" id="hamburger" type="button" aria-label="Ouvrir le menu" aria-controls="navLinks" aria-expanded="false">
@@ -1106,7 +1108,7 @@
     });
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) setMenuOpen(false);
+      if (window.innerWidth > 1000) setMenuOpen(false);
     });
 
     document.getElementById('current-year').textContent = new Date().getFullYear();

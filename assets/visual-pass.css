@@ -151,7 +151,9 @@ section { padding-top: 5.8rem; padding-bottom: 5.8rem; }
   color: var(--texte);
   box-shadow: none;
 }
-.lancement-text span { opacity: 1; }
+.lancement-text { flex: 1 1 24rem; min-width: 0; }
+.lancement-text strong { line-height: 1.4; }
+.lancement-text span { display: block; line-height: 1.6; opacity: 1; }
 .lancement-btn {
   border: 1px solid var(--bleu);
   border-radius: 16px;
@@ -229,6 +231,9 @@ section { padding-top: 5.8rem; padding-bottom: 5.8rem; }
 .btn-white:hover { transform: none; box-shadow: none; }
 
 @media (max-width: 768px) {
+  .lancement-banner { flex-direction: column; align-items: stretch; }
+  .lancement-text { flex: none; }
+  .lancement-btn { align-self: flex-start; max-width: 100%; white-space: normal; text-align: center; }
   .hero { min-height: auto; padding-top: 5.7rem; }
   .hero-bg::before {
     top: -5%; right: -25%;
@@ -245,6 +250,10 @@ section { padding-top: 5.8rem; padding-bottom: 5.8rem; }
   .tag-pill { padding: 0; border-radius: 0; background: none; letter-spacing: 0; }
   .valeurs-grid { grid-template-columns: 1fr; }
   .public-card { padding: 1.4rem 1rem; }
+  section { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+@media (max-width: 1000px) {
   .nav-links {
     align-items: stretch;
     gap: 0;
@@ -259,7 +268,6 @@ section { padding-top: 5.8rem; padding-bottom: 5.8rem; }
     margin-top: 1.2rem;
     padding: 0.8rem 1.2rem !important;
   }
-  section { padding-top: 4rem; padding-bottom: 4rem; }
 }
 
 @media (max-width: 560px) {
