@@ -5,14 +5,14 @@
   <title>Les Bulles de Vie 97 — Accompagnement TND &amp; Club de loisirs | Guadeloupe</title>
   <meta name="description" content="Association guadeloupéenne dédiée aux personnes avec TND ou handicap, au soutien des familles et aux activités adaptées hors domicile. Pré-inscription SAP et club de loisirs.">
   <meta name="keywords" content="services à la personne Guadeloupe, TND Guadeloupe, autisme Guadeloupe, accompagnement handicap, SAP Guadeloupe, Les Bulles de Vie 97">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#3B8CC7">
-  <link rel="canonical" href="https://main--lbv97.netlify.app/">
+  <link rel="canonical" href="https://lbv97.netlify.app/">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <meta property="og:title" content="Les Bulles de Vie 97 — Écouter · Accompagner · Créer du lien">
   <meta property="og:description" content="Association d'accompagnement, de soutien aux aidants et d'activités adaptées en Guadeloupe.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://main--lbv97.netlify.app/">
+  <meta property="og:url" content="https://lbv97.netlify.app/">
   <meta property="og:locale" content="fr_GP">
   <script type="application/ld+json">
     {
@@ -21,7 +21,7 @@
       "name": "Les Bulles de Vie 97",
       "alternateName": "LBV97",
       "description": "Association guadeloupéenne d'accompagnement des personnes avec troubles du neurodéveloppement, handicap ou pathologie neurodégénérative, et de soutien à leurs proches aidants.",
-      "url": "https://main--lbv97.netlify.app/",
+      "url": "https://lbv97.netlify.app/",
       "email": "lesbullesdevie97@gmail.com",
       "telephone": "+590690909820",
       "foundingDate": "2026",
@@ -670,20 +670,24 @@
       }
     }
 
-    /* ======== MOBILE ======== */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
+    /* La navigation se replie avant que les liens ne se chevauchent. */
+    @media (max-width: 1024px) {
       .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0;
         background: var(--creme); flex-direction: column; padding: 1.5rem;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1); gap: 1rem; }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
+    }
+
+    /* ======== MOBILE ======== */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
       section { padding: 3.5rem 1.5rem; }
       .hero { padding: 7rem 1.5rem 3rem; }
       .hero-badge { display: none; }
       .valeurs-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      .publics-grid { grid-template-columns: repeat(2,1fr); }
+      .publics-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
       .preinscription-grid { grid-template-columns: 1fr; gap: 2rem; }
       .piliers { grid-template-columns: 1fr; padding: 1.25rem; gap: 1rem; }
       .contact-voies { grid-template-columns: 1fr; }
@@ -693,11 +697,18 @@
       .public-photo { width: 76px; height: 76px; }
       .hero-layout { grid-template-columns: 1fr; gap: 2rem; }
       .hero-visual { order: -1; }
-      .hero-logo-card { width: min(300px, 88vw); }
+      .hero-logo-card { width: min(300px, 100%); }
       .club-grid { grid-template-columns: 1fr; }
       .club-cards { grid-template-columns: 1fr; }
       .conversion-strip { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 560px) {
+      .publics-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: clamp(2.4rem, 11vw, 3rem); }
+      .form-card, .club-panel { padding: 1.5rem; }
+      .form-alt, footer a { overflow-wrap: anywhere; }
     }
 
 
@@ -705,7 +716,7 @@
 </head>
 <body>
 
-  <a class="skip-link" href="#accueil">Aller au contenu</a>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <!-- Le lavis aquarellé du dépliant, repris tel quel en fond de page -->
   <div class="lavis-fond" aria-hidden="true">
@@ -714,7 +725,7 @@
   </div>
 
   <!-- ======== NAV ======== -->
-  <nav id="navbar">
+  <nav id="navbar" aria-label="Navigation principale">
     <a href="#accueil" class="nav-logo">
       <div class="nav-logo-bubble"><img src="assets/logo-sans-texte.webp" width="320" height="320" alt="Logo Les Bulles de Vie 97"></div>
       <div class="nav-logo-text">Les Bulles<br><span>de Vie 97</span></div>
@@ -732,6 +743,7 @@
     </button>
   </nav>
 
+  <main id="contenu" tabindex="-1">
   <!-- ======== HERO ======== -->
   <section class="hero" id="accueil">
     <div class="hero-bg"></div>
@@ -1086,6 +1098,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ======== FOOTER ======== -->
   <footer>

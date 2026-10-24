@@ -7,3 +7,6 @@ les-bulles-de-vie-97-demo.html
 
 # Fichiers du système
 .DS_Store
+
+# État local Netlify, jamais publié dans le dépôt
+.netlify/
