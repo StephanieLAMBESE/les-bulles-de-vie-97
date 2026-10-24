@@ -22,6 +22,13 @@ et dans `robots.txt`, qui indique également l'adresse du sitemap.
 Les fichiers CSS et images ne portent pas d'empreinte de version : le cache doit
 être revalidé pour que les mises à jour soient visibles immédiatement.
 
+## Adhésion, dons et mécénat
+
+La rubrique `#soutenir` et le pied de page renvoient aux formulaires HelloAsso
+de cotisation 2026 et de don. Les liens s'ouvrent dans un nouvel onglet.
+La rubrique `#mecenat` présente les soutiens financiers, en nature et en compétences,
+avec un contact par e-mail pour définir un projet avec l'association.
+
 ## Maintenance
 
 - Les consignes de modification sont dans [AGENTS.md](AGENTS.md).

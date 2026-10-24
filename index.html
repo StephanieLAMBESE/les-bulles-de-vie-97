@@ -587,6 +587,29 @@
     }
     .form-alt a { color: var(--bleu); font-weight: 700; }
 
+    /* ======== ADHÉSION ET DONS ======== */
+    #soutenir { background: rgba(255,255,255,0.72); }
+    .soutien-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; }
+    .soutien-card {
+      display: flex; flex-direction: column; align-items: flex-start;
+      padding: 2rem; border-radius: var(--radius-card);
+      border: 1px solid rgba(59,140,199,0.14);
+      background: var(--bleu-pale);
+    }
+    .soutien-card + .soutien-card { background: var(--violet-pale); }
+    .soutien-card h3 { font-family: var(--police-titre); font-size: 1.6rem; line-height: 1.25; margin-bottom: 0.8rem; }
+    .soutien-card p { color: var(--gris); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; }
+    .soutien-card .btn { margin-top: auto; justify-content: center; text-align: center; }
+    .soutien-note { margin-top: 1.25rem; color: var(--gris); font-size: 0.85rem; line-height: 1.6; }
+
+    /* ======== MÉCÉNAT ======== */
+    .mecenat-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; }
+    .mecenat-card { padding: 1.75rem; background: var(--blanc); border: 1px solid rgba(59,140,199,0.14); border-radius: var(--radius-card); }
+    .mecenat-card h3 { font-family: var(--police-titre); font-size: 1.3rem; line-height: 1.3; margin-bottom: 0.8rem; }
+    .mecenat-card p, .mecenat-suite { color: var(--gris); font-size: 0.95rem; line-height: 1.8; }
+    .mecenat-suite { max-width: 760px; margin-top: 1.5rem; }
+    .mecenat-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+
     /* ======== CONTACT ======== */
     #contact {
       background: linear-gradient(135deg, var(--bleu) 0%, var(--violet) 100%);
@@ -671,7 +694,7 @@
     }
 
     /* La navigation se replie avant que les liens ne se chevauchent. */
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
       .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0;
         background: var(--creme); flex-direction: column; padding: 1.5rem;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1); gap: 1rem; }
@@ -691,6 +714,8 @@
       .preinscription-grid { grid-template-columns: 1fr; gap: 2rem; }
       .piliers { grid-template-columns: 1fr; padding: 1.25rem; gap: 1rem; }
       .contact-voies { grid-template-columns: 1fr; }
+      .soutien-grid { grid-template-columns: 1fr; }
+      .mecenat-grid { grid-template-columns: 1fr; }
       .missions-intro { grid-template-columns: 1fr; justify-items: start; }
       .missions-photo { order: -1; margin-bottom: 1.5rem; width: 120px; height: 120px; }
       .club-entete { flex-direction: column-reverse; align-items: flex-start; gap: 1.1rem; }
@@ -708,6 +733,7 @@
       .publics-grid { grid-template-columns: 1fr; }
       .hero-title { font-size: clamp(2.4rem, 11vw, 3rem); }
       .form-card, .club-panel { padding: 1.5rem; }
+      .soutien-card { padding: 1.5rem; }
       .form-alt, footer a { overflow-wrap: anywhere; }
     }
 
@@ -735,6 +761,8 @@
       <li><a href="#services">Accompagnement</a></li>
       <li><a href="#club-loisirs">Club loisirs</a></li>
       <li><a href="#publics">Publics</a></li>
+      <li><a href="#soutenir">Nous soutenir</a></li>
+      <li><a href="#mecenat">Mécénat</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#preinscription" class="nav-cta">Pré-inscription</a></li>
     </ul>
@@ -1068,6 +1096,56 @@
     </div>
   </section>
 
+  <!-- ======== ADHÉSION ET DONS ======== -->
+  <section id="soutenir" aria-labelledby="soutenir-titre">
+    <div class="section-inner">
+      <p class="section-tag">Agir ensemble</p>
+      <h2 class="section-title" id="soutenir-titre">Soutenir <em>l'association</em></h2>
+      <p class="section-intro">Rejoignez Les Bulles de Vie 97 ou soutenez nos actions en faveur du bien-être, des activités adaptées et du répit en Guadeloupe.</p>
+      <div class="soutien-grid">
+        <article class="soutien-card">
+          <h3>Adhérer à l'association</h3>
+          <p>Participez à la vie de l'association et rejoignez une communauté engagée aux côtés des personnes concernées et de leurs proches aidants. Retrouvez les modalités et les tarifs dans le formulaire de cotisation 2026.</p>
+          <a class="btn btn-primary" href="https://www.helloasso.com/associations/les-bulles-de-vie-97/adhesions/cotisation-2026" target="_blank" rel="noopener noreferrer" aria-label="Adhérer à l'association sur HelloAsso (nouvel onglet)">Adhérer à l'association</a>
+        </article>
+        <article class="soutien-card">
+          <h3>Faire un don</h3>
+          <p>Votre soutien aide Les Bulles de Vie 97 à développer ses actions et à faire grandir des solutions adaptées aux besoins des personnes et des familles.</p>
+          <a class="btn btn-primary" href="https://www.helloasso.com/associations/les-bulles-de-vie-97/formulaires/1" target="_blank" rel="noopener noreferrer" aria-label="Faire un don sur HelloAsso (nouvel onglet)">Faire un don</a>
+        </article>
+      </div>
+      <p class="soutien-note">L'adhésion et les dons se font sur HelloAsso. Chaque formulaire s'ouvre dans un nouvel onglet.</p>
+    </div>
+  </section>
+
+  <!-- ======== MÉCÉNAT ======== -->
+  <section id="mecenat" aria-labelledby="mecenat-titre">
+    <div class="section-inner">
+      <p class="section-tag">Entreprises et partenaires</p>
+      <h2 class="section-title" id="mecenat-titre">Devenir <em>mécène</em></h2>
+      <p class="section-intro">Vous souhaitez vous engager aux côtés des personnes avec TND ou handicap et de leurs aidants ? Votre entreprise peut soutenir les actions de proximité des Bulles de Vie 97 en Guadeloupe.</p>
+      <div class="mecenat-grid">
+        <article class="mecenat-card">
+          <h3>Un soutien financier</h3>
+          <p>Contribuer au développement d'un projet, à l'organisation d'activités adaptées ou à des temps de répit pour les familles.</p>
+        </article>
+        <article class="mecenat-card">
+          <h3>Un soutien en nature</h3>
+          <p>Proposer du matériel, des équipements, un lieu d'accueil ou des moyens logistiques, selon les besoins des actions.</p>
+        </article>
+        <article class="mecenat-card">
+          <h3>Un soutien en compétences</h3>
+          <p>Mobiliser les savoir-faire de vos équipes : communication, organisation, outils numériques ou autres expertises utiles à l'association.</p>
+        </article>
+      </div>
+      <p class="mecenat-suite">Chaque proposition fait l'objet d'un échange pour définir ensemble le projet soutenu, les modalités de contribution et le suivi des actions. Parlons de ce que nous pouvons construire ensemble.</p>
+      <div class="mecenat-actions">
+        <a class="btn btn-primary" href="mailto:lesbullesdevie97@gmail.com?subject=Proposition%20de%20m%C3%A9c%C3%A9nat%20-%20Les%20Bulles%20de%20Vie%2097">Parlons mécénat</a>
+        <a class="btn btn-secondary" href="#soutenir">Adhérer ou faire un don</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ======== CONTACT ======== -->
   <section id="contact">
     <div class="section-inner contact-inner">
@@ -1107,6 +1185,11 @@
     <span>
       <a href="tel:+590690909820">06 90 90 98 20</a> ·
       <a href="mailto:lesbullesdevie97@gmail.com">lesbullesdevie97@gmail.com</a>
+    </span>
+    <span>
+      <a href="https://www.helloasso.com/associations/les-bulles-de-vie-97/adhesions/cotisation-2026" target="_blank" rel="noopener noreferrer" aria-label="Adhérer sur HelloAsso (nouvel onglet)">Adhérer</a> ·
+      <a href="https://www.helloasso.com/associations/les-bulles-de-vie-97/formulaires/1" target="_blank" rel="noopener noreferrer" aria-label="Faire un don sur HelloAsso (nouvel onglet)">Faire un don</a>
+      · <a href="#mecenat">Mécénat</a>
     </span>
     <span>
       <a href="mentions-legales.html">Mentions légales</a> ·
