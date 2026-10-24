@@ -2,12 +2,9 @@
 [build]
   publish = "."
 
-# La confidentialité est imposée dans Netlify pour tous les déploiements.
-# Les consignes de non-indexation ci-dessous ne remplacent pas ce contrôle.
 [[headers]]
   for = "/*"
   [headers.values]
-    Cache-Control = "private, max-age=0, must-revalidate"
-    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "public, max-age=0, must-revalidate"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"

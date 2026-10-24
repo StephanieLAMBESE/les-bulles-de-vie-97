@@ -14,12 +14,10 @@ Site statique de l'association Les Bulles de Vie 97.
 
 Branche de production : `main`.
 Le dossier publié est la racine du dépôt.
-Site : https://lbv97.netlify.app/ (accès privé par connexion à l'équipe Netlify).
+Site : https://lbv97.netlify.app/ (accès public, sans compte).
 
-Le contrôle d'accès Netlify doit s'appliquer à **tous les déploiements**,
-y compris les URL de branche et les liens permanents des versions.
-Les balises `noindex` et `robots.txt` complètent cette protection sans la remplacer.
-Ne pas désactiver l'accès privé sans l'accord explicite de la propriétaire.
+Le site vitrine est destiné au public. L'indexation est autorisée dans les pages
+et dans `robots.txt`, qui indique également l'adresse du sitemap.
 
 Les fichiers CSS et images ne portent pas d'empreinte de version : le cache doit
 être revalidé pour que les mises à jour soient visibles immédiatement.
